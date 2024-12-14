@@ -1,0 +1,119 @@
+/* Hide the scrollbar for WebKit browsers */
+::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for all elements */
+  body {
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+  }
+  .mySwiper {
+    padding: 20px 0;
+  }
+  
+  .mySwiper .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+/* Add this CSS to your stylesheet or inside a <style> block */
+.marquee-wrapper {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  background: linear-gradient(to right, #2196f3, #009688);
+  padding: 16px;
+}
+
+.marquee {
+  display: flex;
+  white-space: nowrap;
+  padding-right: 50px; /* Add padding to avoid sudden cutoff of items */
+  animation: marquee-animation 20s linear infinite;
+}
+
+.marquee-bottom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  white-space: nowrap;
+  padding-right: 50px;
+  animation: marquee-animation-bottom 20s linear infinite;
+}
+
+.category-item {
+  font-size: 1.5rem;
+  margin: 0 16px;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+/* Add this CSS to your stylesheet or inside a <style> block */
+.marquee-wrapper {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    background: linear-gradient(to right, #2196f3, #009688);
+    padding: 16px;
+  }
+  
+  .marquee {
+    display: flex;
+    white-space: nowrap;
+    padding-right: 50px; /* Add padding to avoid sudden cutoff of items */
+    animation: marquee-animation 20s linear infinite;
+  }
+  
+  .marquee-bottom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    white-space: nowrap;
+    padding-right: 50px;
+    animation: marquee-animation-bottom 20s linear infinite;
+  }
+  
+  .category-item {
+    font-size: 1.5rem;
+    margin: 0 19px;
+    display: flex;
+    align-items: center;
+    color: white;
+  }
+  
+  .icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 50px;
+    margin-left: 10px;
+  }
+  
+  @keyframes marquee-animation {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  @keyframes marquee-animation-bottom {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
