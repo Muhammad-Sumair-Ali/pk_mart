@@ -19,7 +19,7 @@ const ProductListingPage = () => {
           { name: searchQuery },
         ]}
       />
-      <div className="px-2 md:px-8 py-4">
+      <div className="md:px-10 lg:px-20 py-4">
         <h2 className="text-2xl mb-4">
           Search Results for: <span className="font-bold px-1"> {searchQuery}</span>
         </h2>
@@ -28,7 +28,7 @@ const ProductListingPage = () => {
         {error && <p className="text-red-500">{error}</p>}
 
         {products?.length > 0 ? (
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+          <div className="grid grid-cols-2  md:grid-cols-5 gap-2 md:gap-4 mb-10">
             {products?.map((product, index) => (
               <ProductCardDefault product={product} key={index} />
             ))}

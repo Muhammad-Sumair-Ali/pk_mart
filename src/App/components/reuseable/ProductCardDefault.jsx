@@ -3,7 +3,7 @@ import ProductDetailModal from "../modal/ProductDetailModal";
 
 const ProductCardDefault = ({ product }) => {
   return (
-    <div className="bg-orange-50 ">
+    <div className="bg-gray-100 ">
       <div>
        
         <div className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
