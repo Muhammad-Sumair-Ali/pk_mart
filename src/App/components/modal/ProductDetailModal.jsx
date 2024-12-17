@@ -11,7 +11,8 @@ export default function ProductDetailModal({ product }) {
     <>
       {/* Trigger Button */}
       <button
-        className="w-full bg-blue-500 text-white rounded-md p-1 mt-2 font-semibold hover:bg-blue-600 transition duration-300"
+        className="w-20 border border-gray-300 p-1 text-black text-xs rounded-2xl  hover:bg-gradient-to-r
+         from-indigo-600 to-violet-500 hover:text-white transition duration-300"
         onClick={() => setOpen(true)}
       >
         View Details

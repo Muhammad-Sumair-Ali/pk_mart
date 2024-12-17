@@ -1,14 +1,13 @@
 export const categories = [
   {
     title: "Apparel, Clothing & Garments",
-    image:
-      "https://wearochre.com/cdn/shop/files/Resize_0125_COR-121_4.jpg?v=1729587866&width=360",
+    image: "https://wearochre.com/cdn/shop/files/Resize_0125_COR-121_4.jpg?v=1729587866&width=360",
     subcategories: [
       {
         name: "Kids Wear",
         image:
           "https://images.pexels.com/photos/1620760/pexels-photo-1620760.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        types: ["T-Shirts", "Jeans", "School Uniforms"],
+        types: ["shirt", "Jeans", "School Uniforms"],
       },
       {
         name: "Ladies Kurtis",
@@ -235,4 +234,139 @@ export const categories = [
       },
     ],
   },
+];
+
+
+
+export const categoriesSectionData = [
+  {
+    name: "Furniture",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX84TThEkCk5Tto74uMrBycsCW-elrhMYJ4w&s",
+  },
+  {
+    name: "Mens-shirts",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8_PGJzKuxLBu8tPmuvUg5AkEjja1yovvX5Q&s",
+  },
+  {
+    name: "Gameing",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUIPUEC4sWffaoStkzs1qC4FdHfRmYX21sow&s",
+  },
+  {
+    name: "Laptops",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOxDcYgKlSoCV3y6PnJjaqaZvC9pQAmXlU6w&s",
+  },
+  {
+    slug: "beauty",
+    name: "Beauty",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcSsus0IWbwLq0EG0W39fJUUDCstEtyWLfaw&s"
+  },
+  {
+    slug: "fragrances",
+    name: "Fragrances",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIGR4V7JeSZcSQAPHO_3G8Fwpv-NSBiBf0Ng&s"
+  },
+  {
+    slug: "furniture",
+    name: "Furniture",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6kQCCNCAoBEmRY1UNIk20BrlRbkN3rAATOQ&s"
+  },
+  {
+    slug: "groceries",
+    name: "Groceries",
+    image: "https://kissankarobar.pk/wp-content/uploads/2024/07/402320111e89429fbaf27166a0578974-min-1000x565.webp"
+  },
+  {
+    slug: "home-decoration",
+    name: "Home Decoration",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnAcIApTptEZQMXvBTOd-pKVJrrOBrKMEy1A&s"
+  },
+  {
+    name: "clothing",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQys8HB4djCRV7RSfqybrwXQVQmTse2soX0yQ&s",
+  },
+  {
+    slug: "kitchen-accessories",
+    name: "Kitchen Accessories",
+    image: "https://5.imimg.com/data5/SELLER/Default/2022/3/MM/JY/NK/146681207/kitchen-accessories-jpg-500x500.jpg"
+  },
+  {
+    slug: "mens-shoes",
+    name: "Mens Shoes",
+    image: "https://www.parishfootwear.pk/cdn/shop/files/FEE09597-A2F8-4C28-8890-4C52E006F3D9_1024x1024.jpg?v=1733849505"
+  },
+  {
+    slug: "mens-watches",
+    name: "Mens Watches",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmIdPf0nexgHicbcZjFqG6rchX9JrsleGoUA&s"
+  },
+  {
+    slug: "mobile-accessories",
+    name: "Mobile Accessories",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKl5dK3jgUzONSQt8Z6CyP4p0H2TtaBBqX0w&s"
+  },
+  {
+    slug: "motorcycle",
+    name: "Motorcycle",
+    image: "https://www.samaa.tv/images/honda-cd-70-and-dream-october-2023-price.jpg"
+  },
+  {
+    slug: "skin-care",
+    name: "Skin Care",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjmr1hR13zybzvjljzItwz7A5tnaxlwhKX7A&s"
+  },
+  {
+    slug: "smartphones",
+    name: "Smartphones",
+    image: "https://cdn.mos.cms.futurecdn.net/AVEcca7TuDmt8wjaFZPkzj-1200-80.jpg"
+  },
+  {
+    slug: "sports-accessories",
+    name: "Sports Accessories",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToldVjTc9Sg1aem3BeYEWG6vdGCmXti4kBXQ&s"
+  },
+  {
+    slug: "sunglasses",
+    name: "Sunglasses",
+    image: "https://www.arzaan.pk/cdn/shop/products/re2_900x.jpg?v=1684931902"
+  },
+  {
+    slug: "tablets",
+    name: "Tablets",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYC9lQV8FBTauviAK_BntKM-wBBwTGVqrIvA&s"
+  },
+  {
+    slug: "vehicle",
+    name: "Vehicle",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqD0UNeFXlrFq_qpwQVe3-ktBB9Fan1jt3og&s"
+  },
+  {
+    slug: "womens-bags",
+    name: "Womens Bags",
+    image: "https://zellbury.com/cdn/shop/files/WBC22E408_-_BLACK_1.jpg?v=1728711422"
+  },
+  {
+    slug: "womens-dresses",
+    name: "Womens Dresses",
+    image: "https://www.rafia.pk/cdn/shop/articles/formal-women-dresses-in-india-and-pakistan-706345_grande.webp?v=1695381312"
+  },
+  {
+    slug: "womens-jewellery",
+    name: "Womens Jewellery",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpEB5MF1x8-Mahp63kNiyaeCqvszgnqmCleg&s"
+  },
+  {
+    slug: "womens-shoes",
+    name: "Womens Shoes",
+    image: "https://www.julke.pk/cdn/shop/files/Hudson-women-block-heels-black-square-toe-gold-horsebit-buckle-top-view-JULKE_256x@3x.jpg?v=1727421310"
+  },
+  {
+    slug: "womens-watches",
+    name: "Womens Watches",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThjmqi-_B3OPNZmzTX2ot-Yp65zs-kxvpFxQ&s"
+  }
 ];

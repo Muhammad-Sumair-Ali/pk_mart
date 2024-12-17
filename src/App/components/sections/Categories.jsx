@@ -1,13 +1,24 @@
-// import "../assets/css/style.css";
-import React from "react";
+import React, { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css"; 
-import "swiper/css/pagination"; 
-import "swiper/css/navigation"; 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { paths } from "../../../helper/paths";
 import { categories } from "../../../data/categories";
+import { useSearch } from "../../../context/SearchContext";
+import { useSearchItems } from "../../../action/search";
 const Categories = () => {
+  const { handleSearch } = useSearchItems();
+  const {setSearchQuery,searchQuery } = useSearch();
+
+  const handleSubcategoryClick = (subcategoryType) => {
+    setSearchQuery(subcategoryType);
+  };
+  
+  useEffect(() => {
+    if (searchQuery) {
+      handleSearch();
+    }
+  }, [searchQuery]);
+
 
   return (
     <>
@@ -81,6 +92,7 @@ const Categories = () => {
                           <div className="flex flex-wrap flex-col gap-1">
                             {subcategory.types.map((type, typeIdx) => (
                               <div
+                                onClick={() => handleSubcategoryClick(type)}
                                 key={typeIdx}
                                 className="text-xs text-gray-600 border border-gray-300 rounded-md px-2 py-1 text-center hover:bg-blue-100 hover:text-blue-600 transition"
                               >
@@ -111,15 +123,16 @@ const Categories = () => {
                     {/* Subcategory Name */}
                     <div>
                       <Link to={paths.products}>
-                      <h4 className="text-sm font-semibold text-gray-800 group-hover:text-blue-600 mb-2">
-                        {subcategory.name}
-                      </h4>
+                        <h4 className="text-sm font-semibold text-gray-800 group-hover:text-blue-600 mb-2">
+                          {subcategory.name}
+                        </h4>
                       </Link>
 
                       {/* Types Table */}
                       <div className="flex flex-wrap gap-1 xl:gap-2">
                         {subcategory.types.map((type, typeIdx) => (
                           <div
+                            onClick={() => handleSubcategoryClick(type)}
                             key={typeIdx}
                             className="text-xs text-gray-600 border border-gray-400 rounded-md xl:px-2 p-1 py-1 text-left hover:bg-blue-200 hover:text-blue-600 hover:cursor-pointer transition"
                           >

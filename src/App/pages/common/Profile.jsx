@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import GetbestPrice from "../../components/reuseable/GetbestPrice";
 import ProductdetailModal from "../../components/modal/ProductDetailModal";
-import ProductCardDefault from "../../components/reuseable/ProductCardDef";
+import ProductCardDefault from "../../components/reuseable/ProductCardDefault";
 
 const ProfilePage = () => {
   const [categories, setCategories] = useState([]);
@@ -34,7 +34,7 @@ const ProfilePage = () => {
   return (
     <div className="flex flex-col md:flex-row min-h-screen bg-gray-100">
       {/* Sidebar */}
-      <aside className="w-full md:w-1/5 bg-white p-4 shadow-md">
+      <aside className="hidden md:block md:w-1/5 bg-white p-4 shadow-md">
         <div className="mb-4">
           <input
             type="text"
@@ -61,10 +61,10 @@ const ProfilePage = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* Product Gallery */}
           <div className="md:col-span-2">
-            <h2 className="text-xl font-bold mb-4">Products</h2>
+            <h2 className="text-xl font-bold mb-4">Seller Products</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {products?.map((product) => (
-                <ProductCardDefault product={product} />
+              {products?.map((product,index) => (
+                <ProductCardDefault key={index} product={product} />
               ))}
 
             
@@ -73,7 +73,7 @@ const ProfilePage = () => {
 
           {/* Detail Card */}
           <div className="bg-gradient-to-l from-blue-100 via-blue-50  shadow-md px-4 py-2 rounded-md">
-            <h3 className="text-lg font-bold mb-2">Business Name</h3>
+            <h3 className="text-lg font-bold mb-2">Business Details</h3>
             <p className="text-blue-800 font-sans font-semibold  text-xl ">
               Jz Traders
             </p>
@@ -83,7 +83,7 @@ const ProfilePage = () => {
             >
               View more details
             </a>
-            <div className="mb-4">
+            <div className="mb-5">
               <h4 className="font-semibold">Business Gallery</h4>
               <div className="grid grid-cols-3 gap-2 mt-2">
                 <img
@@ -103,7 +103,7 @@ const ProfilePage = () => {
                 />
               </div>
             </div>
-            <div className="my-4">
+            <div className="my-4 mb-4">
               <h4 className="font-semibold block">Achivements & Bages</h4>
 
               <div className="grid grid-cols-3 gap-2 mt-2">
@@ -124,7 +124,7 @@ const ProfilePage = () => {
                 />
               </div>
             </div>
-            <div className="mb-4">
+            <div className="mb-3 my-4">
               <h4 className="font-semibold">Address</h4>
               <p className="text-sm text-gray-700 flex items-center my-1">
                 <span>
@@ -189,7 +189,7 @@ const ProfilePage = () => {
           {/* Business Name Section */}
           <div>
             <h3 className="text-3xl font-extrabold text-gray-800 mb-3">
-              Business Name
+              Business Details
             </h3>
             <p className="text-sm text-gray-600 leading-relaxed">
               A few lines about the business to highlight key details and what

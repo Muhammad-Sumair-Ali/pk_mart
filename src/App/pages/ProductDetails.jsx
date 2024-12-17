@@ -28,7 +28,8 @@ function ProductDetail() {
   return (
     <div className="container mx-auto px-4 py-8">
       <div>
-        <Breadcrumb/>
+      <Breadcrumb items={[{ name: 'Home', link: '/' },   { name: 'Products', link: '/products' }, { name: product.title }]} />
+
       </div>
       {loading ? (
         <h1 className="text-center text-3xl font-bold">Loading...</h1>

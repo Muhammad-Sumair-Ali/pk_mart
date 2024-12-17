@@ -5,19 +5,17 @@ const ProductCardDefault = ({ product }) => {
   return (
     <div className="bg-orange-50 ">
       <div>
-        {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6"> */}
-
+       
         <div className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
           {/* Product Image */}
           <div className="relative">
             <div className="overflow-hidden h-auto border-b-2">
-
-            <img
-              src={product?.thumbnail}
-              alt={product?.title}
-              className="w-full h-52  object-cover bg-gradient-to-b from-blue-100 via-white hover:scale-110 transition-all "
+              <img
+                src={product?.thumbnail}
+                alt={product?.title}
+                className="w-full h-52  object-cover bg-gradient-to-b from-blue-100 via-white hover:scale-110 transition-all "
               />
-              </div>
+            </div>
             <button className="absolute top-2 right-2 bg-white p-2 rounded-full shadow-md hover:shadow-lg">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -47,15 +45,21 @@ const ProductCardDefault = ({ product }) => {
             <h3 className="text-sm font-semibold text-gray-800">
               {product?.title}
             </h3>
-            <p className="text-sm text-gray-500 mt-1">{product?.price}</p>
-           <ProductDetailModal product={product}/> 
-            <p className="mt-2 text-xs text-gray-400">
-              Launched on {product?.launchDate}
-            </p>
+            <p className="text-sm text-gray-600 mb-1"> <span className="text-blue-500">PKR </span> {product?.price}</p>
+
+            <div className="flex items-center justify-between gap-x-1">
+            <ProductDetailModal product={product} />
+            <button
+              className="w-20 border border-gray-300 p-1 px-2 text-black text-xs rounded-2xl  hover:bg-gradient-to-r
+              from-indigo-600 to-violet-500 hover:text-white transition duration-300" >
+              Get Price
+            </button>
+           </div>
+
           </div>
         </div>
 
-        {/* </div> */}
+     
       </div>
     </div>
   );
