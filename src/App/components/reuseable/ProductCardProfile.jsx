@@ -1,7 +1,7 @@
 import React from "react";
 import ProductDetailModal from "../modal/ProductDetailModal";
 
-const ProductCardDefault = ({ product }) => {
+const ProductCardProfile = ({ product }) => {
   return (
     <div className="bg-gray-100 ">
       <div>
@@ -64,4 +64,4 @@ const ProductCardDefault = ({ product }) => {
     </div>
   );
 };
-export default ProductCardDefault;
+export default ProductCardProfile;

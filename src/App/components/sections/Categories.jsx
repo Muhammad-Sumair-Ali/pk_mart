@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Link, useNavigate } from "react-router-dom";
 import { paths } from "../../../helper/paths";
@@ -6,18 +6,23 @@ import { categories } from "../../../data/categories";
 import { useSearch } from "../../../context/SearchContext";
 import { useSearchItems } from "../../../action/search";
 const Categories = () => {
+
   const { handleSearch } = useSearchItems();
   const {setSearchQuery,searchQuery } = useSearch();
+  const [subcategory, setSubcategory] = useState("")
 
   const handleSubcategoryClick = (subcategoryType) => {
+   setSubcategory(subcategoryType);
     setSearchQuery(subcategoryType);
+   
   };
   
   useEffect(() => {
-    if (searchQuery) {
+    if(subcategory){
       handleSearch();
     }
-  }, [searchQuery]);
+   
+  }, [subcategory]);
 
 
   return (

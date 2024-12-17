@@ -3,12 +3,12 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,jsx,ts,tsx}",
-    "./node_modules/flowbite/**/*.js", // Ensure Flowbite is properly included
+    "./node_modules/flowbite/**/*.js", 
   ],
   theme: {
     extend: {
       backgroundImage: {
-        'header-bg': "url('/public/assets/images/homebg.jpg')", // Ensure the image path is correct
+        'header-bg': "url('/public/assets/images/homebg.jpg')", 
       },
       animation: {
         marquee: "marquee 20s linear infinite",
@@ -27,6 +27,6 @@ export default {
     },
   },
   plugins: [
-    require('flowbite/plugin'), // Make sure Flowbite is installed and configured correctly
+    require('flowbite/plugin'), 
   ],
 };

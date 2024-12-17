@@ -1,6 +1,7 @@
-import ProductCardDefault from "../components/reuseable/ProductCardDefault";
+
 import Breadcrumb from "../components/reuseable/Breadcrumb";
 import { useLocation } from "react-router-dom";
+import ProductCard from "../components/reuseable/ProductCard";
 
 const ProductListingPage = () => {
   const location = useLocation();
@@ -19,7 +20,7 @@ const ProductListingPage = () => {
           { name: searchQuery },
         ]}
       />
-      <div className="md:px-10 lg:px-20 py-4">
+      <div className="px-4 md:px-8 lg:px-16 py-4">
         <h2 className="text-2xl mb-4">
           Search Results for: <span className="font-bold px-1"> {searchQuery}</span>
         </h2>
@@ -30,7 +31,7 @@ const ProductListingPage = () => {
         {products?.length > 0 ? (
           <div className="grid grid-cols-2  md:grid-cols-5 gap-2 md:gap-4 mb-10">
             {products?.map((product, index) => (
-              <ProductCardDefault product={product} key={index} />
+              <ProductCard product={product} key={index} />
             ))}
           </div>
         ) : (

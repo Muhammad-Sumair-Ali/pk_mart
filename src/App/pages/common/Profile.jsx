@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import GetbestPrice from "../../components/reuseable/GetbestPrice";
 import ProductdetailModal from "../../components/modal/ProductDetailModal";
-import ProductCardDefault from "../../components/reuseable/ProductCardDefault";
+import ProductCardProfile from "../../components/reuseable/ProductCardProfile";
 
 const ProfilePage = () => {
   const [categories, setCategories] = useState([]);
@@ -40,7 +40,7 @@ const ProfilePage = () => {
             type="text"
             placeholder="Search..."
             className="w-full p-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
-          />
+          /> 
         </div>
         <div>
           <h3 className="font-semibold text-lg mb-2">Product Categories</h3>
@@ -64,7 +64,7 @@ const ProfilePage = () => {
             <h2 className="text-xl font-bold mb-4">Seller Products</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {products?.map((product,index) => (
-                <ProductCardDefault key={index} product={product} />
+                <ProductCardProfile key={index} product={product} />
               ))}
 
             
