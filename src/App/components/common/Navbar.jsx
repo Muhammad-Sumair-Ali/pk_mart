@@ -78,24 +78,23 @@ export default function Navbar() {
                         Login
                       </button>
                     </li>
-                    <li>
+                    <li className="text-center">
                       <a
                         href="#"
                         title=""
-                        className="inline-flex w-full items-center py-2"
+                        className=" text-xs w-full items-center my-3"
                       >
                         Don't have an account?{" "}
                         <span className="text-blue-700">Register</span>
                       </a>
                     </li>
                     <li>
-                      <a
-                        href="#"
-                        title=""
+                      <Link to={paths.profile}
+                        title="profile"
                         className="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-600"
                       >
-                        My Orders
-                      </a>
+                        My Profile
+                      </Link>
                     </li>
                     <li>
                       <Link
