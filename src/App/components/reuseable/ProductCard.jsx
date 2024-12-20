@@ -52,8 +52,10 @@ const ProductCard = ({ product }) => {
             </p>
             <p className="text-sm text-gray-600 mb-1 ">
               {" "}
-              {product?.stock} Pieces {"(MOQ)"}
-            </p>
+               <span className="mr-1">
+Min Qty
+              </span>
+              {product?.stock} Pieces             </p>
 
             <div className="flex items-center justify-between gap-x-1">
               <button

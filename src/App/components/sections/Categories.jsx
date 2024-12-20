@@ -29,7 +29,7 @@ const Categories = () => {
     <>
       <div className="px-2 md:px-7 mx-auto p-2">
         <div>
-          <h2 className="text-2xl lg:text-3xl md:text-2xl px-2 md:px-0 my-2 md:my-5 font-semibold text-gray-800">
+          <h2 className="text-xl lg:text-3xl md:text-2xl  md:px-2 my-2 md:my-5 font-semibold text-gray-800">
             Categories You May Like
           </h2>
         </div>
@@ -49,7 +49,7 @@ const Categories = () => {
                md:bg-gradient-to-r from-blue-800 to-violet-500 py-1 px-2 rounded-lg"
               >
                 <div className=" md:text-center w-40 md:w-full">
-                  <h2 className=" md:text-2xl font-semibold font-sans">
+                  <h2 className=" md:text-2xl text-sm sm:text-md font-semibold font-sans">
                     {category.title}
                   </h2>
                   <p className="hidden md:block text-gray-300 text-xs  md:mt-2 font-thin">
@@ -60,8 +60,9 @@ const Categories = () => {
                 <div>
                   <Link to={`/subCategories/${index}`}>
                     <button
-                      className="md:absolute  md:right-4 lg:right-4 xl:right-5 top-7 text-md md:text-md xl:text-lg border border-blue-600 p-2 md:p-1 md:px-4
-                 shadow-xl rounded-md text-blue-600 underline"
+                      className="md:absolute  md:right-4 lg:right-4 xl:right-5 top-7 text-sm  md:text-md xl:text-lg
+                       p-2 md:p-1 md:px-4
+                  rounded-md text-blue-600 underline"
                     >
                       View all
                     </button>

@@ -1,5 +1,6 @@
 import React from "react";
 import ProductDetailModal from "../modal/ProductDetailModal";
+import { Link } from "react-router-dom";
 
 const ProductCardProfile = ({ product }) => {
   return (
@@ -9,13 +10,15 @@ const ProductCardProfile = ({ product }) => {
         <div className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
           {/* Product Image */}
           <div className="relative">
+            <Link to={`/products/${product.id}`}>
             <div className="overflow-hidden h-auto border-b-2">
               <img
                 src={product?.thumbnail}
                 alt={product?.title}
                 className="w-full h-52  object-cover bg-gradient-to-b from-blue-100 via-white hover:scale-110 transition-all "
-              />
+                />
             </div>
+                </Link>
             <button className="absolute top-2 right-2 bg-white p-2 rounded-full shadow-md hover:shadow-lg">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

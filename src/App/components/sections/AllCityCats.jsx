@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const CitySection = () => {
   const cities = [
@@ -16,14 +16,20 @@ const CitySection = () => {
     { name: "Rawalpindi", image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/127579188.jpg?k=ba978d0e3f3278c76498b07d0d888a649b70d8c28bd7dc0e9055b53346459404&o=&hp=1" },
   ];
 
+  const [showAll, setShowAll] = useState(false);
+
+  const displayedCities = showAll
+    ? cities 
+    : cities.slice(0, 6); 
+
   return (
     <section className="bg-gray-100 py-4 md:py-8">
-        <h2 className="text-2xl md:text-4xl font-bold text-gray-800 mb-4 md:mb-6 text-center">
-          Find Suppliers from Top Cities in Pakistan
-        </h2>
+      <h2 className="text-2xl md:text-4xl font-bold text-gray-800 mb-4 md:mb-6 text-center">
+        Find Suppliers from Top Cities in Pakistan
+      </h2>
       <div className="md:container mx-auto text-center">
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-6 px-2 ">
-          {cities.map((city, index) => (
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-6 px-2">
+          {displayedCities.map((city, index) => (
             <div
               key={index}
               className="relative group rounded-lg overflow-hidden hover:shadow-lg hover:shadow-blue-200"
@@ -43,6 +49,19 @@ const CitySection = () => {
             </div>
           ))}
         </div>
+
+        {/* See More Button */}
+        {!showAll && (
+          <button
+            onClick={() => setShowAll(true)}
+            className="mt-6 px-4 py-2 text-white bg-blue-600 hover:bg-blue-700 rounded-md font-medium transition duration-300"
+          >
+            See More Cities
+          </button>
+        )}
+
+        {/* See Less Button */}
+       
       </div>
     </section>
   );

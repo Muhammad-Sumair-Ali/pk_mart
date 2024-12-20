@@ -14,7 +14,7 @@ const SearchBarNav = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.pageYOffset >= 310) {
+      if (window.pageYOffset >= 420) {
         setShowSearch(true);
       } else {
         setShowSearch(false);
@@ -32,7 +32,7 @@ const SearchBarNav = () => {
       <div className={showSearch ? "block w-full md:w-2/4" : "hidden"}>
         <form
           onSubmit={handleSearch}
-          className="flex items-center w-full sm:h-12 h-12 px-1 bg-gray-300/75 rounded-md shadow-sm"
+          className="flex items-center w-full sm:h-12 h-11 px-1 bg-gray-300/75 rounded-md shadow-sm"
         >
           <input
             type="search"
@@ -47,7 +47,7 @@ const SearchBarNav = () => {
             {/* Search Button */}
             <button
               type="submit"
-              className="flex items-center justify-center px-4 py-2 bg-blue-600 text-white font-medium rounded-lg shadow hover:bg-blue-700 transition-all duration-200"
+              className="flex items-center justify-center px-4 py-2  text-black font-medium rounded-lg hover:bg-blue-50 transition-all duration-200"
               disabled={loading}
             >
               {loading ? (
