@@ -75,13 +75,14 @@ const Categories = () => {
                 {/* Swiper for mobile */}
                 <Swiper
                   slidesPerView={2}
-                  spaceBetween={20}
+                  spaceBetween={15}
                   freeMode={true}
                   className="mySwiper"
                 >
                   {category.subcategories.map((subcategory, idx) => (
                     <SwiperSlide key={idx}>
-                      <div className="group mb-2 flex flex-col items-center text-center h-60 bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition duration-300 ">
+                      <div className="group mb-2  flex flex-col items-center text-center h-64 bg-white rounded-lg overflow-hidden 
+                      shadow-lg hover:shadow-xl transition duration-300 ">
                         {/* Subcategory Image */}
                         <img
                           src={subcategory.image}
@@ -95,7 +96,7 @@ const Categories = () => {
                           </h4>
 
                           {/* Types Table */}
-                          <div className="flex flex-wrap flex-col gap-1">
+                          <div className="flex flex-wrap flex-col gap-1 px-1">
                             {subcategory.types.map((type, typeIdx) => (
                               <div
                                 onClick={() => handleSubcategoryClick(type)}

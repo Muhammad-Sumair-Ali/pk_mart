@@ -29,7 +29,7 @@ const GetbestPrice = () => {
         <input
           type="text"
           placeholder="Product/Service Name"
-          className="col-span-2 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 shadow-sm"
+          className=" p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 shadow-sm"
         />
         <input
           type="text"
