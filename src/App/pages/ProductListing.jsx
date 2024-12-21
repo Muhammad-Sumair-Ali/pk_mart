@@ -13,6 +13,7 @@ const ProductListingPage = () => {
 
   return (
     <>
+    
       <Breadcrumb
         items={[
           { name: "Home", link: "/" },
@@ -21,7 +22,7 @@ const ProductListingPage = () => {
         ]}
       />
       <div className="px-4 md:px-8 lg:px-16 py-4">
-        <h2 className="text-2xl mb-4">
+        <h2 className="text-lg md:text-xl mb-4">
           Search Results for: <span className="font-bold px-1"> {searchQuery}</span>
         </h2>
 

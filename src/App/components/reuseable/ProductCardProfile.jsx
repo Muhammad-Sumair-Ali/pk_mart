@@ -1,5 +1,4 @@
 import React from "react";
-import ProductDetailModal from "../modal/ProductDetailModal";
 import { Link } from "react-router-dom";
 
 const ProductCardProfile = ({ product }) => {
@@ -51,7 +50,7 @@ const ProductCardProfile = ({ product }) => {
             <p className="text-sm text-gray-600 mb-1"> <span className="text-blue-500">PKR </span> {product?.price}</p>
 
             <div className="flex items-center justify-between gap-x-1">
-            <ProductDetailModal product={product} />
+            {/* <ProductDetailModal product={product} /> */}
             <button
               className="w-20 border border-gray-300 p-1 px-2 text-black text-xs rounded-2xl  hover:bg-gradient-to-r
               from-indigo-600 to-violet-500 hover:text-white transition duration-300" >

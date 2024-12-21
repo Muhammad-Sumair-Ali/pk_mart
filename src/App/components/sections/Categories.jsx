@@ -48,19 +48,21 @@ const Categories = () => {
                 className="flex items-center justify-between shadow-lg mb-2 md:my-2 md:m-auto w-full  md:w-2/3 text-black md:text-white bg-gray-100
                md:bg-gradient-to-r from-blue-800 to-violet-500 py-1 px-2 rounded-lg"
               >
-                <div className=" md:text-center w-40 md:w-full">
-                  <h2 className=" md:text-2xl text-sm sm:text-md font-semibold font-sans">
+                <div className=" md:text-center w-full py-2 md:w-full">
+                   <Link to={`/subCategories/${index}`}>
+                  <h2 className=" md:text-2xl text-sm sm:text-md font-semibold font-sans hover:text-blue-500 hover:underline">
                     {category.title}
                   </h2>
+                  </Link>
                   <p className="hidden md:block text-gray-300 text-xs  md:mt-2 font-thin">
                     Discover the latest and trending products in the{" "}
                     <strong> {category.title}</strong>
                   </p>
                 </div>
-                <div>
+                <div className="hidden md:block " >
                   <Link to={`/subCategories/${index}`}>
                     <button
-                      className="md:absolute  md:right-4 lg:right-4 xl:right-5 top-7 text-sm  md:text-md xl:text-lg
+                      className="md:absolute md:top-8 md:right-6 lg:right-4 xl:right-5 top-7 text-xl  md:text-md xl:text-lg
                        p-2 md:p-1 md:px-4
                   rounded-md text-blue-600 underline"
                     >
@@ -87,7 +89,7 @@ const Categories = () => {
                         <img
                           src={subcategory.image}
                           alt={subcategory.name}
-                          className="w-full h-24 object-cover mb-2 sm:mb-0 sm:mr-2"
+                          className="w-28 h-24  object-cover mb-2 sm:mb-0 sm:mr-2"
                         />
                         {/* Subcategory Name */}
                         <div className="flex-1 ">

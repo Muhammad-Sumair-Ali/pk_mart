@@ -76,9 +76,9 @@ function ProductDetail() {
             <span className="text-xl font-bold text-green-600">
               PKR {product?.price}
             </span>
-            <span className="text-sm text-gray-500">
+            {/* <span className="text-sm text-gray-500">
               ({product.rating} ★) | {product.stock} in stock
-            </span>
+            </span> */}
           </div>
 
           {/* Additional Info */}

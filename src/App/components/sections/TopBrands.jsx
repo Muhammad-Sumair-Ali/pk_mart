@@ -53,8 +53,8 @@ const TopBrands = () => {
   ];
 
   return (
-    <section className="md:py-10 px-2 bg-gray-100 pb-8">
-      <div className="md:container mx-auto text-center px-4">
+    <section className="md:py-10 bg-gray-100 pb-8">
+      <div className="md:container mx-auto text-center px-2">
         <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-12">
           Top Pakistan Brands
         </h2>

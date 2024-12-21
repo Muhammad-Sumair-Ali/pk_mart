@@ -98,7 +98,6 @@
     margin-right: 50px;
     margin-left: 10px;
   }
-  
   @keyframes marquee-animation {
     0% {
       transform: translateX(100%);
@@ -108,25 +107,18 @@
     }
   }
   
-  @keyframes marquee-animation-bottom {
+  @keyframes marquee-animation-reverse {
     0% {
-      transform: translateX(0);
+      transform: translateX(-100%);
     }
     100% {
-      transform: translateX(-100%);
-    }
-  }
-  @keyframes marquee {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-100%);
+      transform: translateX(100%);
     }
   }
   
+  /* Main Animation */
   .animate-marquee {
     display: flex;
-    animation: marquee 15s linear infinite;
+    animation: marquee-animation 15s linear infinite alternate; /* Add alternate */
   }
   

@@ -21,53 +21,55 @@ const SubCategories = () => {
         <Breadcrumb
           items={[
             { name: "Home", link: "/" },
-            { name: "SubCategory" },
             { name: category.title },
           ]}
         />
 
         <div className="mb-4">
-          <h2 className="text-2xl font-bold text-gray-800">
-            {category?.title}
-          </h2>
+          <h2 className="text-xl font-bold text-gray-800">{category?.title}</h2>
         </div>
 
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-5 gap-4 ">
+        <div className="space-y-2 sm:grid grid-cols-3 gap-2">
           {category?.subcategories.map((subcategory, idx) => (
             <div
               key={idx}
-              className="group flex flex-col drop-shadow-xl overflow-hidden items-center bg-white rounded-lg shadow-sm hover:shadow-md transition hover:-translate-y-2 p-2"
+              className="flex  min-h-[150px] max-h-[155px] items-center bg-white rounded-lg shadow-md hover:shadow-lg transition hover:-translate-y-1 p-2 gap-2"
             >
               {/* Subcategory Image */}
               <img
                 src={subcategory.image}
                 alt={subcategory.name}
-                className="w-full h-32 object-cover rounded-md shadow-lg mb-3   border border-gray-200 group-hover:border-blue-500 transition"
+                className="w-24 h-28 object-cover rounded-md border border-gray-200 shadow-sm"
               />
-              {/* Subcategory Name */}
-              <Link to={paths.products}>
-                <h4 className="text-sm md:text-md font-bold text-gray-800 group-hover:text-blue-600 transition text-center">
-                  {subcategory.name}
-                </h4>
-              </Link>
 
-              {/* Types */}
-              <div className="flex flex-wrap justify-center gap-1 mt-1 md:mt-2">
-                {subcategory?.types.map((type, typeIdx) => (
-                  <div
-                    key={typeIdx}
-                    className="text-xs md:text-sm  text-gray-700 bg-gray-100 rounded-full md:px-2 py-1 p-1 hover:bg-blue-100 hover:text-blue-600 transition"
-                  >
-                    {type}
-                  </div>
-                ))}
+              {/* Subcategory Details */}
+              <div className="flex-1">
+                <Link to={paths.products}>
+                  <h4 className="text-md font-bold text-gray-800 hover:text-blue-600 transition">
+                    {subcategory.name}
+                  </h4>
+                </Link>
+                <div className="flex flex-wrap gap-1 md:gap-2 mt-1">
+                  {subcategory?.types.map((type, typeIdx) => (
+                    <div
+                      key={typeIdx}
+                      className="text-xs text-gray-700 bg-gray-100 rounded-full px-3 py-1 hover:bg-blue-100 hover:text-blue-600 transition"
+                    >
+                      {type}
+                    </div>
+                  ))}
+                </div>
               </div>
+
+              {/* Action Button */}
+              
             </div>
           ))}
         </div>
-        <div className="flex justify-center my-4">
-          <button className="bg-blue-600 text-white px-2 p-2  w-48 rounded-lg hover:bg-blue-800 shadow-lg drop-shadow-lg">
-            View more{" "}
+
+        <div className="flex justify-center my-6">
+          <button className="bg-blue-600 text-white px-4 py-2 w-48 rounded-lg hover:bg-blue-800 shadow-lg">
+            View more
           </button>
         </div>
       </div>

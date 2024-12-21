@@ -28,7 +28,7 @@ const CitySection = () => {
         Find Suppliers from Top Cities in Pakistan
       </h2>
       <div className="md:container mx-auto text-center">
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-6 px-2">
+        <div className="grid grid-cols-3 sm:grid-cols-3 gap-3 md:gap-5 px-2">
           {displayedCities.map((city, index) => (
             <div
               key={index}
@@ -38,12 +38,12 @@ const CitySection = () => {
               <img
                 src={city.image}
                 alt={city.name}
-                className="w-full h-32 md:h-40 object-cover group-hover:scale-110 transition-transform duration-300"
+                className="w-full h-28 md:h-40 object-cover group-hover:scale-110 transition-transform duration-300"
               />
               {/* Overlay */}
               <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition-all duration-300"></div>
               {/* City Name */}
-              <p className="absolute inset-0 flex items-center justify-center text-white font-semibold text-xl sm:text-2xl font-sans">
+              <p className="absolute inset-0 flex items-center justify-center text-white font-semibold text-md sm:text-2xl font-sans">
                 {city.name}
               </p>
             </div>

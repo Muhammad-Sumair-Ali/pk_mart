@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import GetbestPrice from "../../components/reuseable/GetbestPrice";
-import ProductdetailModal from "../../components/modal/ProductDetailModal";
 import ProductCardProfile from "../../components/reuseable/ProductCardProfile";
 
 const ProfilePage = () => {
