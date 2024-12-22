@@ -24,15 +24,15 @@ const CitySection = () => {
 
   return (
     <section className="bg-gray-100 py-4 md:py-8">
-      <h2 className="text-2xl md:text-4xl font-bold text-gray-800 mb-4 md:mb-6 text-center">
+      <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6 text-center">
         Find Suppliers from Top Cities in Pakistan
       </h2>
-      <div className="md:container mx-auto text-center">
-        <div className="grid grid-cols-3 sm:grid-cols-3 gap-3 md:gap-5 px-2">
+      <div className="md:w-[90%] xl:w-[80%] w-full mx-auto text-center">
+        <div className="grid grid-cols-3 sm:grid-cols-5  md:gap-y-2 md:gap-x-10 gap-2 gap-y-3 px-2 md:px-14">
           {displayedCities.map((city, index) => (
             <div
               key={index}
-              className="relative group rounded-lg overflow-hidden hover:shadow-lg hover:shadow-blue-200"
+              className="relative group rounded-lg overflow-hidden hover:shadow-lg hover:shadow-blue-200 md:w-48 md:h-28"
             >
               {/* City Background Image */}
               <img
@@ -43,7 +43,7 @@ const CitySection = () => {
               {/* Overlay */}
               <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition-all duration-300"></div>
               {/* City Name */}
-              <p className="absolute inset-0 flex items-center justify-center text-white font-semibold text-md sm:text-2xl font-sans">
+              <p className="absolute inset-0 flex items-center justify-center text-white font-semibold text-md sm:text-xl font-sans">
                 {city.name}
               </p>
             </div>

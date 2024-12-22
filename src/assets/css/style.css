@@ -18,7 +18,7 @@
     align-items: center;
   }
 
-/* Add this CSS to your stylesheet or inside a <style> block */
+/* Add this CSS to your stylesheet or inside a <style> block
 .marquee-wrapper {
   position: relative;
   display: flex;
@@ -31,10 +31,10 @@
   display: flex;
   white-space: nowrap;
   padding-right: 50px; /* Add padding to avoid sudden cutoff of items */
-  animation: marquee-animation 20s linear infinite;
-}
+  /* animation: marquee-animation 20s linear infinite; */
+/* } */
 
-.marquee-bottom {
+/* .marquee-bottom {
   position: absolute;
   top: 0;
   left: 0;
@@ -119,6 +119,56 @@
   /* Main Animation */
   .animate-marquee {
     display: flex;
-    animation: marquee-animation 15s linear infinite alternate; /* Add alternate */
+    animation: marquee-animation 10s linear infinite alternate; /* Add alternate */
+  } */ */
+  /* Hide the clear button in search input fields */
+input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
+
+.brand-group {
+  display: flex;
+  gap: 10px;
+  padding-right: 20px; /* Add padding to the right to create a gap between the last and first card. */
+  will-change: transform; /* We should be nice to the browser - let it know what we're going to animate. */
+  animation: scrolling 20s linear infinite;
+}
+
+.carousel {
+  margin: 0 auto;
+  padding: 5px 0;
+  /* max-width: 70%; */
+  overflow: hidden;
+  display: flex;
+  position: relative;
+}
+
+.brand-card {
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 auto;
+}
+.carousel:hover .brand-group {
+  cursor: pointer;
+  animation-play-state: paused; /* Pauses the animation when the carousel is hovered */
+}
+/* .card:nth-child(1) {
+  background: white;
+}
+
+.card:nth-child(2) {
+  background: #5d34f2;
+}
+
+.card:nth-child(3) {
+  background: #4300da;
+} */
+
+@keyframes scrolling {
+  0% {
+    transform: translateX(0);
   }
-  
+  100% {
+    transform: translateX(-50%);
+  }
+}

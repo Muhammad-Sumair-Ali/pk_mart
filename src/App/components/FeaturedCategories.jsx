@@ -110,8 +110,8 @@ const FeaturedCategories = () => {
           {/* Right Button */}
           <button
             onClick={() => scroll("right")}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white hidden md:block md:p-3 h-full rounded-md  shadow-md hover:bg-gray-200 z-10"
-          >
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white hidden md:block md:p-3 h-full rounded-md shadow-md hover:bg-gray-200 z-10"
+            >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

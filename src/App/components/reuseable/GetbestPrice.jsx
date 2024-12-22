@@ -2,7 +2,7 @@ import React from 'react';
 
 const GetbestPrice = () => {
   return (
-    <div className="md:px-4 px-1 mt-4 lg:-mt-12">
+    <div className="md:px-4 px-1 mt-4">
     <div className="bg-gradient-to-r from-blue-100 via-white to-blue-50 shadow-xl p-2 md:p-4 rounded-lg ">
       <h3 className="text-md md:text-xl font-semibold text-gray-800 mb-3 flex items-center gap-2">
         Get the Best Deals, Faster and Smarter

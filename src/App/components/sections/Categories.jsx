@@ -27,9 +27,9 @@ const Categories = () => {
 
   return (
     <>
-      <div className="px-2 md:px-7 mx-auto p-2">
+      <div className="px-2 xl:px-6 sm:px-2  md:px-4 mx-auto p-2">
         <div>
-          <h2 className="text-xl lg:text-3xl md:text-2xl  md:px-2 my-2 md:my-5 font-semibold text-gray-800">
+          <h2 className="text-xl lg:text-3xl md:text-2xl  md:px-2 my-2 md:my-5 font-semibold text-gray-900">
             Categories You May Like
           </h2>
         </div>
@@ -37,7 +37,7 @@ const Categories = () => {
           <div
             key={index}
             className="mb-6 md:mb-8 flex flex-col md:flex-row items-center lg:items-start bg-transparent
-             md:bg-gray-200 rounded-lg  md:shadow-xl px-4 overflow-hidden"
+             md:bg-gray-200 rounded-lg  md:shadow-xl px-4 overflow-hidden "
           >
             {/* Category Image */}
 
@@ -54,23 +54,9 @@ const Categories = () => {
                     {category.title}
                   </h2>
                   </Link>
-                  <p className="hidden md:block text-gray-300 text-xs  md:mt-2 font-thin">
-                    Discover the latest and trending products in the{" "}
-                    <strong> {category.title}</strong>
-                  </p>
+                 
                 </div>
-                <div className="hidden md:block " >
-                  <Link to={`/subCategories/${index}`}>
-                    <button
-                      className="md:absolute md:top-8 md:right-6 lg:right-4 xl:right-5 top-7 text-xl  md:text-md xl:text-lg
-                       p-2 md:p-1 md:px-4
-                  rounded-md text-blue-600 underline"
-                    >
-                      View all
-                    </button>
-                  </Link>
-                </div>
-              </div>
+                              </div>
 
               {/* Subcategories */}
               <div className="md:hidden">
@@ -83,13 +69,13 @@ const Categories = () => {
                 >
                   {category.subcategories.map((subcategory, idx) => (
                     <SwiperSlide key={idx}>
-                      <div className="group mb-2  flex flex-col items-center text-center h-64 bg-white rounded-lg overflow-hidden 
+                      <div className="group mb-2  flex flex-col items-center text-center w-36 h-64 bg-white rounded-lg overflow-hidden 
                       shadow-lg hover:shadow-xl transition duration-300 ">
                         {/* Subcategory Image */}
                         <img
                           src={subcategory.image}
                           alt={subcategory.name}
-                          className="w-28 h-24  object-cover mb-2 sm:mb-0 sm:mr-2"
+                          className="w-full h-28  object-cover mb-2 sm:mb-0 sm:mr-2"
                         />
                         {/* Subcategory Name */}
                         <div className="flex-1 ">
@@ -117,7 +103,7 @@ const Categories = () => {
               </div>
 
               {/* For larger screens */}
-              <div className="hidden md:grid sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-4 mb-4">
+              <div className="hidden md:grid sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-4 mb-4 xl:px-4 max-2xl:px-8">
                 {category.subcategories.map((subcategory, idx) => (
                   <div
                     key={idx}
@@ -127,7 +113,7 @@ const Categories = () => {
                     <img
                       src={subcategory.image}
                       alt={subcategory.name}
-                      className="w-20 md:w-16  xl:w-20 h-full object-cover rounded-full sm:mb-0 sm:mr-2"
+                      className="w-20 md:w-16  xl:w-20  h-full object-cover rounded-full md:rounded-full max-xl:rounded-3xl sm:mb-0 sm:mr-2"
                     />
                     {/* Subcategory Name */}
                     <div>

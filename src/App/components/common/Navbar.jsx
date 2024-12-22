@@ -55,67 +55,10 @@ export default function Navbar() {
                 </svg>
               </button>
 
-              <span
-                className="px-1 hidden md:block"
-                onClick={handleDropdownToggle}
-              >
-                <svg
-                  className="rounded-full border-2 w-12 h-12 bg-gray-300 text-gray-400 p-1"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path>
-                </svg>
-              </span>
+             
               <LeftDrawer />
 
-              {isOpen && (
-                <div className="absolute top-12 right-0 z-10 w-56 divide-y divide-gray-100 overflow-hidden overflow-y-auto rounded-lg bg-gray-50 shadow dark:divide-gray-600 dark:bg-gray-700">
-                  <ul className="p-2 text-start text-sm font-medium text-gray-900 dark:text-white">
-                    <li>
-                      <button className="w-full bg-blue-600 text-white p-2 rounded-lg">
-                        Login
-                      </button>
-                    </li>
-                    <li className="text-center">
-                      <a
-                        href="#"
-                        title=""
-                        className=" text-xs w-full items-center my-3"
-                      >
-                        Don't have an account?{" "}
-                        <span className="text-blue-700">Register</span>
-                      </a>
-                    </li>
-                    <li>
-                      <Link to={paths.profile}
-                        title="profile"
-                        className="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-600"
-                      >
-                        My Profile
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to={paths.profile}
-                        className="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-600"
-                      >
-                        Settings
-                      </Link>
-                    </li>
-                  </ul>
-                  <div className="p-2 text-sm font-medium text-gray-900 dark:text-white">
-                    <a
-                      href="#"
-                      title=""
-                      className="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-600"
-                    >
-                      Sign Out
-                    </a>
-                  </div>
-                </div>
-              )}
+             
             </div>
           </div>
         </div>

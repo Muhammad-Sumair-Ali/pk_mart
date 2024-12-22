@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import GetbestPrice from "../../components/reuseable/GetbestPrice";
-import ProductCardProfile from "../../components/reuseable/ProductCardProfile";
+import ProductCard from "../../components/reuseable/ProductCard";
 
 const ProfilePage = () => {
   const [categories, setCategories] = useState([]);
@@ -33,7 +33,7 @@ const ProfilePage = () => {
   return (
     <div className="flex flex-col md:flex-row min-h-screen bg-gray-100">
       {/* Sidebar */}
-      <aside className="hidden md:block md:w-1/5 bg-white p-4 shadow-md">
+      <aside className=" md:w-1/5 bg-white p-4 shadow-md">
         <div className="mb-4">
           <input
             type="text"
@@ -63,7 +63,7 @@ const ProfilePage = () => {
             <h2 className="text-xl font-bold mb-4">Seller Products</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {products?.map((product,index) => (
-                <ProductCardProfile key={index} product={product} />
+                <ProductCard key={index} product={product} />
               ))}
 
             
