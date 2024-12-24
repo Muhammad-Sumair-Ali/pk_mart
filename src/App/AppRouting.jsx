@@ -6,6 +6,8 @@ import ProductDetail from "./pages/ProductDetails";
 import ProfilePage from "./pages/common/Profile";
 import SubCategories from "./pages/SubCategories";
 import ScrollRestoration from "./components/panel/ScrollRestoration";
+import Login from "./pages/auth/Login";
+import Signup from "./pages/auth/Signup";
 
 
 const AppRouting = () => {
@@ -19,8 +21,8 @@ const AppRouting = () => {
       <Route path={paths.profile} element={<ProfilePage />} />
       <Route path={paths.subCategories} element={<SubCategories />} />
       <Route path="/search" element={<ProductListing />} />
-      {/* <Route path={paths.login} element={<Login />} />
-      <Route path={paths.signup} element={<Signup />} /> */}
+      <Route path={paths.login} element={<Login />} />
+      <Route path={paths.signup} element={<Signup />} />
      
       <Route path="*" element={<> Not Found </>} />
     </Routes>

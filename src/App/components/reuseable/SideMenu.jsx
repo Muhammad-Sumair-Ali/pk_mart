@@ -2,9 +2,9 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { paths } from "../../../helper/paths";
 
-export const LeftDrawer = () => {
+export const SideMenu = () => {
+  const user = false;
   const [isOpen, setIsOpen] = useState(false);
-
   const toggleDrawer = () => {
     setIsOpen(!isOpen);
   };
@@ -45,7 +45,7 @@ export const LeftDrawer = () => {
           id="drawer-disable-body-scrolling-label"
           className="text-base font-semibold text-gray-500 uppercase dark:text-gray-400 space-x-2"
         >
-        Jz Mart
+          Jz Mart
         </h5>
         <button
           type="button"
@@ -70,33 +70,59 @@ export const LeftDrawer = () => {
           <span className="sr-only">Close menu</span>
         </button>
         <div className="py-4 overflow-y-auto">
-          
-            <Link to={paths.profile}>
-          <div className="flex items-center flex-row p-1 gap-2 bg-white border rounded-md dark:bg-gray-800 hover:bg-gray-50">
-            {/* Profile Picture */}
-            <div className="relative w-11 h-11">
-              <svg
-                className="w-full h-full rounded-full bg-gradient-to-tr from-gray-200 via-gray-300 to-gray-400 text-gray-500 p-2 dark:from-gray-600 dark:via-gray-700 dark:to-gray-800"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-                >
-                <path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path>
-              </svg>
-            </div>
+        {user ? (
+  <div>
+    <Link to={paths.profile}>
+      <div className="flex items-center gap-2 p-2 bg-white border rounded-md dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700">
+        {/* Profile Picture */}
+        <div className="relative w-8 h-8">
+          <svg
+            className="w-full h-full rounded-full bg-gradient-to-tr from-gray-200 via-gray-300 to-gray-400 text-gray-500 p-1.5 dark:from-gray-600 dark:via-gray-700 dark:to-gray-800"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path>
+          </svg>
+        </div>
 
-            {/* Text Section */}
-            <div>
-              <h5 className="text-lg font-semibold text-gray-800 dark:text-gray-100">
-                Hi, <em>Mr. Sumair</em>
-              </h5>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
-                Welcome back!
-              </p>
-            </div>
-          </div>
-                </Link>
+        {/* Text Section */}
+        <div className="text-sm">
+          <p className="font-semibold text-gray-800 dark:text-gray-100">
+            Hi, <em>Mr. Sumair</em>
+          </p>
+          <p className="text-gray-500 dark:text-gray-400">Welcome back!</p>
+        </div>
+      </div>
+    </Link>
+  </div>
+) : (
+  <div>
+    <Link to={paths.login}>
+      <div className="flex items-center gap-2 p-2 bg-white border rounded-md dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700">
+        {/* Placeholder Icon */}
+        <div className="relative w-8 h-8">
+          <svg
+            className="w-full h-full rounded-full bg-gradient-to-tr from-gray-200 via-gray-300 to-gray-400 text-gray-500 p-1.5 dark:from-gray-600 dark:via-gray-700 dark:to-gray-800"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path>
+          </svg>
+        </div>
 
+        {/* Text Section */}
+        <div className="text-sm">
+          <p className="font-semibold text-gray-800 dark:text-gray-100">
+            Not Logged in !!
+          </p>
+          <p className="text-gray-500 dark:text-gray-400">Login to see profile</p>
+        </div>
+      </div>
+    </Link>
+  </div>
+)}
 
           <ul className="space-y-2 font-medium">
             <li>
@@ -161,12 +187,9 @@ export const LeftDrawer = () => {
                     Products
                   </a>
                 </li>
-                
               </ul>
             </li>
-          
-            
-           
+
             <li>
               <a
                 href="#"
@@ -185,8 +208,9 @@ export const LeftDrawer = () => {
               </a>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+               to={paths.login} 
+                
                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
               >
                 <svg
@@ -205,11 +229,11 @@ export const LeftDrawer = () => {
                   />
                 </svg>
                 <span className="flex-1 ms-3 whitespace-nowrap">Sign In</span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+               to={paths.signup} 
                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
               >
                 <svg
@@ -224,7 +248,7 @@ export const LeftDrawer = () => {
                   <path d="M8.961 16a.93.93 0 0 0 .189-.019l3.4-.679a.961.961 0 0 0 .49-.263l6.118-6.117a2.884 2.884 0 0 0-4.079-4.078l-6.117 6.117a.96.96 0 0 0-.263.491l-.679 3.4A.961.961 0 0 0 8.961 16Zm7.477-9.8a.958.958 0 0 1 .68-.281.961.961 0 0 1 .682 1.644l-.315.315-1.36-1.36.313-.318Zm-5.911 5.911 4.236-4.236 1.359 1.359-4.236 4.237-1.7.339.341-1.699Z" />
                 </svg>
                 <span className="flex-1 ms-3 whitespace-nowrap">Sign Up</span>
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

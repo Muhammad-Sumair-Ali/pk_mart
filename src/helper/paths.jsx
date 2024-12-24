@@ -13,8 +13,8 @@ export const paths = {
     accountDetails: "/account/:accountId",
   
     // admin
-    // admin: "/admin",
-    // dashboard: "/admin/dashboard",
+    admin: "/admin",
+    dashboard: "/admin/dashboard",
     // // products: "/admin/products",
     // productEdit: "/admin/products/:productId/edit",
     // users: "/admin/users",

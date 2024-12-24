@@ -1,9 +1,9 @@
-import { LeftDrawer } from "../reuseable/LeftDrawer";
 import Logo from "../../../assets/images/logo.png";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { paths } from "../../../helper/paths";
 import SearchBarNav from "../reuseable/SearchBarNav";
+import { SideMenu } from "../reuseable/SideMenu";
 
 export default function Navbar() {
 
@@ -56,7 +56,7 @@ export default function Navbar() {
               </button>
 
              
-              <LeftDrawer />
+              <SideMenu />
 
              
             </div>
