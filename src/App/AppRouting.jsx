@@ -8,6 +8,8 @@ import SubCategories from "./pages/SubCategories";
 import ScrollRestoration from "./components/panel/ScrollRestoration";
 import Login from "./pages/auth/Login";
 import Signup from "./pages/auth/Signup";
+import ChatPage from "./pages/ChatPage";
+import MessagePanel from "./components/MessagePanel";
 
 
 const AppRouting = () => {
@@ -21,6 +23,12 @@ const AppRouting = () => {
       <Route path={paths.profile} element={<ProfilePage />} />
       <Route path={paths.subCategories} element={<SubCategories />} />
       <Route path="/search" element={<ProductListing />} />
+      
+      <Route path="/chat/home"  element={ <ChatPage/>} />
+      <Route path="/chat/:id"  element={ <ChatPage/>} />
+      <Route path="/chat/user/:id"  element={ <MessagePanel/>} />
+
+      {/* auth pages */}
       <Route path={paths.login} element={<Login />} />
       <Route path={paths.signup} element={<Signup />} />
      
