@@ -70,59 +70,63 @@ export const SideMenu = () => {
           <span className="sr-only">Close menu</span>
         </button>
         <div className="py-4 overflow-y-auto">
-        {user ? (
-  <div>
-    <Link to={paths.profile}>
-      <div className="flex items-center gap-2 p-2 bg-white border rounded-md dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700">
-        {/* Profile Picture */}
-        <div className="relative w-8 h-8">
-          <svg
-            className="w-full h-full rounded-full bg-gradient-to-tr from-gray-200 via-gray-300 to-gray-400 text-gray-500 p-1.5 dark:from-gray-600 dark:via-gray-700 dark:to-gray-800"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path>
-          </svg>
-        </div>
+          {user ? (
+            <div>
+              <Link to={paths.profile}>
+                <div className="flex items-center gap-2 p-2 bg-white border rounded-md dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700">
+                  {/* Profile Picture */}
+                  <div className="relative w-8 h-8">
+                    <svg
+                      className="w-full h-full rounded-full bg-gradient-to-tr from-gray-200 via-gray-300 to-gray-400 text-gray-500 p-1.5 dark:from-gray-600 dark:via-gray-700 dark:to-gray-800"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path>
+                    </svg>
+                  </div>
 
-        {/* Text Section */}
-        <div className="text-sm">
-          <p className="font-semibold text-gray-800 dark:text-gray-100">
-            Hi, <em>Mr. Sumair</em>
-          </p>
-          <p className="text-gray-500 dark:text-gray-400">Welcome back!</p>
-        </div>
-      </div>
-    </Link>
-  </div>
-) : (
-  <div>
-    <Link to={paths.login}>
-      <div className="flex items-center gap-2 p-2 bg-white border rounded-md dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700">
-        {/* Placeholder Icon */}
-        <div className="relative w-8 h-8">
-          <svg
-            className="w-full h-full rounded-full bg-gradient-to-tr from-gray-200 via-gray-300 to-gray-400 text-gray-500 p-1.5 dark:from-gray-600 dark:via-gray-700 dark:to-gray-800"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path>
-          </svg>
-        </div>
+                  {/* Text Section */}
+                  <div className="text-sm">
+                    <p className="font-semibold text-gray-800 dark:text-gray-100">
+                      Hi, <em>Mr. Sumair</em>
+                    </p>
+                    <p className="text-gray-500 dark:text-gray-400">
+                      Welcome back!
+                    </p>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          ) : (
+            <div>
+              <Link to={paths.login}>
+                <div className="flex items-center gap-2 p-2 bg-white border rounded-md dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700">
+                  {/* Placeholder Icon */}
+                  <div className="relative w-8 h-8">
+                    <svg
+                      className="w-full h-full rounded-full bg-gradient-to-tr from-gray-200 via-gray-300 to-gray-400 text-gray-500 p-1.5 dark:from-gray-600 dark:via-gray-700 dark:to-gray-800"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path>
+                    </svg>
+                  </div>
 
-        {/* Text Section */}
-        <div className="text-sm">
-          <p className="font-semibold text-gray-800 dark:text-gray-100">
-            Not Logged in !!
-          </p>
-          <p className="text-gray-500 dark:text-gray-400">Login to see profile</p>
-        </div>
-      </div>
-    </Link>
-  </div>
-)}
+                  {/* Text Section */}
+                  <div className="text-sm">
+                    <p className="font-semibold text-gray-800 dark:text-gray-100">
+                      Not Logged in !!
+                    </p>
+                    <p className="text-gray-500 dark:text-gray-400">
+                      Login to see profile
+                    </p>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          )}
 
           <ul className="space-y-2 font-medium">
             <li>
@@ -191,26 +195,31 @@ export const SideMenu = () => {
             </li>
 
             <li>
-              <a
-                href="#"
+              <Link
+                to={paths.messagesHome}
                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
               >
                 <svg
-                  className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                  aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 18 20"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="size-6"
                 >
-                  <path d="M17 5.923A1 1 0 0 0 16 5h-3V4a4 4 0 1 0-8 0v1H2a1 1 0 0 0-1 .923L.086 17.846A2 2 0 0 0 2.08 20h13.84a2 2 0 0 0 1.994-2.153L17 5.923ZM7 9a1 1 0 0 1-2 0V7h2v2Zm0-5a2 2 0 1 1 4 0v1H7V4Zm6 5a1 1 0 1 1-2 0V7h2v2Z" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z"
+                  />
                 </svg>
-                <span className="flex-1 ms-3 whitespace-nowrap">Products</span>
-              </a>
+
+                <span className="flex-1 ms-3 whitespace-nowrap">Messages</span>
+              </Link>
             </li>
             <li>
               <Link
-               to={paths.login} 
-                
+                to={paths.login}
                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
               >
                 <svg
@@ -233,7 +242,7 @@ export const SideMenu = () => {
             </li>
             <li>
               <Link
-               to={paths.signup} 
+                to={paths.signup}
                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
               >
                 <svg
@@ -250,6 +259,7 @@ export const SideMenu = () => {
                 <span className="flex-1 ms-3 whitespace-nowrap">Sign Up</span>
               </Link>
             </li>
+           
           </ul>
         </div>
       </div>

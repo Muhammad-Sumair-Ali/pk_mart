@@ -2,7 +2,7 @@ export const paths = {
     login: "/login",
     signup: "/signup",
     home: "/",
-  
+    messagesHome: "/chat/home",
    // products
     products: "/products",
     productDetails: "/products/:id",
