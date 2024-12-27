@@ -33,17 +33,17 @@ const ProfilePage = () => {
   return (
     <div className="flex flex-col md:flex-row min-h-screen bg-gray-100">
       {/* Sidebar */}
-      <aside className=" md:w-1/5 bg-white p-4 shadow-md">
-        <div className="mb-4">
+      <aside className=" md:w-1/5 bg-white p-2 md:p-4 shadow-md">
+        <div className="mb-2">
           <input
             type="text"
             placeholder="Search..."
             className="w-full p-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
           /> 
         </div>
-        <div>
+        <div className="hidden sm:block">
           <h3 className="font-semibold text-lg mb-2">Product Categories</h3>
-          <div className="space-y-2">
+          <div className="space-y-2 ">
             {categories.map((category, index) => (
               <label key={index} className="flex items-center">
                 <input type="checkbox" className="mr-2" />{" "}

@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Breadcrumb from "../components/reuseable/Breadcrumb";
-import GetbestPrice from "../components/reuseable/GetbestPrice";
+import ImagesCarouselModal from "../components/reuseable/ImageCarosell";
 
 function ProductDetail() {
   const { id } = useParams();
@@ -10,8 +10,13 @@ function ProductDetail() {
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
   const [mainImage, setMainImage] = useState("");
+  const [isCarouselOpen, setIsCarouselOpen] = useState(false);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
-  // let seller;
+  const handleImageClick = (index) => {
+    setSelectedImageIndex(index);
+    setIsCarouselOpen(true);
+  };
 
   useEffect(() => {
     setNotFound(false);
@@ -19,7 +24,7 @@ function ProductDetail() {
       .get(`https://dummyjson.com/products/${id}`)
       .then((res) => {
         setProduct(res.data);
-        setMainImage(res.data.thumbnail); 
+        setMainImage(res.data.thumbnail);
         setLoading(false);
       })
       .catch((err) => {
@@ -40,7 +45,12 @@ function ProductDetail() {
           { name: product.title },
         ]}
       />
-
+      <ImagesCarouselModal
+        images={product?.images}
+        isOpen={isCarouselOpen}
+        setIsCarouselOpen={setIsCarouselOpen}
+        initialIndex={selectedImageIndex}
+      />
       <div className="flex flex-col lg:flex-row gap-2 md:gap-8 mt-2">
         {/* Left Section - Images */}
         <div className="lg:w-2/3 flex flex-row lg:flex-row gap-2 md:gap-6">
@@ -61,7 +71,8 @@ function ProductDetail() {
             <img
               src={mainImage}
               alt={product.title}
-              className="w-full h-full md:h-2/3 object-contain max-w-lg mx-auto rounded-xl shadow-lg hover:scale-105 transition-transform"
+              onClick={() => handleImageClick(mainImage?.length)}
+              className="w-full h-full md:h-2/3 bg-gradient-to-b from-blue-100 via-white object-contain max-w-lg mx-auto rounded-xl shadow-lg hover:scale-105 transition-transform"
             />
           </div>
         </div>
@@ -69,7 +80,9 @@ function ProductDetail() {
         {/* Right Section - Product Details */}
         <div className="lg:w-1/3">
           {/* Product Title */}
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-800">{product.title}</h1>
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-800">
+            {product.title}
+          </h1>
           <p className="text-gray-600 mt-2">{product.description}</p>
 
           {/* Price and Reviews */}
@@ -93,29 +106,29 @@ function ProductDetail() {
           {/* Action Buttons */}
           <div className="mt-4 flex flex-row gap-4">
             <Link to="/chat/home">
-            <button 
-              type="button"
-              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium
+              <button
+                type="button"
+                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium
                rounded-lg text-sm px-4 py-2 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700
                 dark:focus:ring-blue-800"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="size-6"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M8.625 9.75a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 0 1 .778-.332 48.294 48.294 0 0 0 5.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z"
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="size-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M8.625 9.75a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 0 1 .778-.332 48.294 48.294 0 0 0 5.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z"
                   />
-              </svg>
-              Contact Seller
-            </button>
-                  </Link>
+                </svg>
+                Contact Seller
+              </button>
+            </Link>
             <button
               type="button"
               className="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium

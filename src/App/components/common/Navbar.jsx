@@ -16,7 +16,7 @@ export default function Navbar() {
     <>
       <nav className="backdrop-blur-sm hover:bg-gray-50/75 dark:bg-gray-800 antialiased shadow-lg sticky top-0 bg-gray-100/25 z-50">
         <div className="w-full px-1 md:px-4 mx-auto 2xl:px-0 py-2">
-          <div className="flex items-center justify-between ">
+          <div className="flex items-center  justify-between ">
             <div className="flex items-center md:space-x-2 ">
               <Link to={paths.home}>
                 <img src={Logo} className="w-16 h-full sm:w-16  md:w-20" />
@@ -31,7 +31,7 @@ export default function Navbar() {
 
             {/* search bar  */}
             <SearchBarNav />
-            <div className="flex items-center lg:space-x-2 relative">
+            <div className="flex items-center lg:space-x-2 relative gap-1">
               <button className="text-xs hidden md:p-2 rounded-md bg-blue-600 text-white md:flex items-center gap-1">
                 Get Best Price{" "}
                 <svg
@@ -50,13 +50,13 @@ export default function Navbar() {
                 </svg>
               </button>
 
-              <button>
+              <button className="hidden lg:block">
                   <Link
                     to={paths.messagesHome}
-                    className="flex   items-center text-sm  py-1 p-2 rounded-md text-white hover:bg-blue-700 bg-blue-600 group"
+                    className="flex   items-center text-sm  py-2  sm:py-1 p-2 rounded-md text-white hover:bg-blue-700 bg-blue-600 group"
                   >
 
-                    <span className="p-1 whitespace-nowrap">
+                    <span className="p-1  whitespace-nowrap">
                       Messages
                     </span>
                     <svg

@@ -32,7 +32,7 @@ const SearchBarNav = () => {
       <div className={showSearch ? "block w-full md:w-2/4" : "hidden"}>
         <form
           onSubmit={handleSearch}
-          className="flex items-center w-full sm:h-12 h-11 px-1 bg-gray-300/75 rounded-md shadow-sm"
+          className="flex items-center w-full mx-1  sm:h-11 lg:h-12 h-11 px-1 bg-gray-300/75 rounded-md shadow-sm"
         >
           <input
             type="search"
