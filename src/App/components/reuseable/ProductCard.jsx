@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import GetBestPriceModal from "../modal/GetBestPriceModal";
-import { EllipsisVerticalIcon } from "@heroicons/react/20/solid"; 
+import { EllipsisVerticalIcon } from "@heroicons/react/20/solid";
+import { useMyMarketAction } from "../../../action/mymarket";
 
 const ProductCard = ({ product }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-
-  
+  const { addProductToWishlist } = useMyMarketAction()
   const handleShare = () => {
     if (navigator.share) {
       navigator
@@ -47,10 +47,10 @@ const ProductCard = ({ product }) => {
             {/* Dropdown Menu */}
             {dropdownOpen && (
               <div className="absolute right-0 sm:right-2 top-11 bg-white divide-y divide-gray-100 rounded-lg shadow-lg w-40 sm:w-44 z-50">
-                <ul className="py-2 text-sm text-gray-700">
+                <ul className="py-2 text-sm text-green-600">
                   <li>
-                    <a
-                      href="#"
+                    <button
+                    onClick={() => addProductToWishlist(product)}
                       className="flex items-center gap-x-1 px-2 py-2 rounded-md hover:bg-gray-100 transition duration-200"
                     >
                       <svg
@@ -59,16 +59,16 @@ const ProductCard = ({ product }) => {
                         viewBox="0 0 24 24"
                         strokeWidth={1.5}
                         stroke="currentColor"
-                        className="size-4 text-red-600"
+                        className="size-4 text-green-800"
                       >
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          d="M12 9v3.75m0-10.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.25-8.25-3.286Zm0 13.036h.008v.008H12v-.008Z"
+                          d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z"
                         />
                       </svg>
-                      Report
-                    </a>
+                      save to My Mart
+                    </button>
                   </li>
 
                   {/* Share Option */}

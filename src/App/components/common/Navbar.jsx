@@ -23,9 +23,11 @@ export default function Navbar() {
               </Link>
 
               <div className="shrink-0">
+                <Link to={paths.mymarket}>
                 <button className="btn p-2 rounded-md hidden md:block bg-slate-300">
                   Enter Market
                 </button>
+                </Link>
               </div>
             </div>
 

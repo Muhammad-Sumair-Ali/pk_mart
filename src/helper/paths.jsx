@@ -4,6 +4,7 @@ export const paths = {
     home: "/",
     messagesHome: "/chat/home",
    // products
+   mymarket: "/user/market",
     products: "/products",
     productDetails: "/products/:id",
     subCategories : "/subCategories/:id",

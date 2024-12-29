@@ -12,6 +12,7 @@ import ChatPage from "./pages/ChatPage";
 import MessagePanel from "./components/MessagePanel";
 import Navbar from "./components/common/Navbar";
 import Footer from "./components/common/Footer";
+import MyMarketListPage from "./pages/MyMarket";
 
 
  const AppRouting = () => {
@@ -43,6 +44,7 @@ import Footer from "./components/common/Footer";
         <Route path={paths.profile} element={<ProfilePage />} />
         <Route path={paths.subCategories} element={<SubCategories />} />
         <Route path="/search" element={<ProductListing />} />
+        <Route path={paths.mymarket} element={<MyMarketListPage />} />
 
         {/* Chat Pages */}
         <Route path="/chat/home" element={<ChatPage />} />
