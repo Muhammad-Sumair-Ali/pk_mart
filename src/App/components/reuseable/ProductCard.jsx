@@ -4,7 +4,7 @@ import GetBestPriceModal from "../modal/GetBestPriceModal";
 import { EllipsisVerticalIcon } from "@heroicons/react/20/solid";
 import { useMyMarketAction } from "../../../action/mymarket";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product ,removeProductFromWishlist}) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const { addProductToWishlist } = useMyMarketAction()
   const handleShare = () => {
@@ -115,9 +115,13 @@ const ProductCard = ({ product }) => {
             </div>
 
             <div className="flex items-center gap-x-1 py-2 px-1 justify-between mt-1 md:mt-2">
-              <button className="w-20 md:w-24 border border-gray-300 p-1 px-2 text-black text-xs rounded-2xl hover:bg-gradient-to-r from-indigo-600 to-violet-500 hover:text-white transition duration-300">
+              {removeProductFromWishlist ? 
+              <button onClick={() =>  removeProductFromWishlist(product.id)} className="w-20 md:w-24 border border-red-600 bg-red-400 p-1 px-2 text-black text-xs rounded-2xl hover:bg-gradient-to-r
+               from-red-600 to-red-500 hover:text-white transition duration-300">
+                Delete
+              </button> : <button className="w-20 md:w-24 border border-gray-300 p-1 px-2 text-black text-xs rounded-2xl hover:bg-gradient-to-r from-indigo-600 to-violet-500 hover:text-white transition duration-300">
                 Call Now
-              </button>
+              </button>  }
               <GetBestPriceModal product={product} />
             </div>
           </div>

@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  useLocation,
+} from "react-router-dom";
 import { paths } from "../helper/paths";
 import Home from "./pages/Home";
 import ProductListing from "./pages/ProductListing";
@@ -13,9 +18,13 @@ import MessagePanel from "./components/MessagePanel";
 import Navbar from "./components/common/Navbar";
 import Footer from "./components/common/Footer";
 import MyMarketListPage from "./pages/MyMarket";
+import AdminProducts from "./pages/admin/products.admin";
+import AdminCategories from "./pages/admin/categories.admin";
+import AdminSubcategories from "./pages/admin/subcats.admin";
+import AdminUsers from "./pages/admin/users.admin";
+import AdminRouting from "./pages/admin/AdminRouting";
 
-
- const AppRouting = () => {
+const AppRouting = () => {
   const location = useLocation();
 
   const noNavFooterRoutes = [
@@ -24,6 +33,7 @@ import MyMarketListPage from "./pages/MyMarket";
     "/chat/home",
     "/chat/:id",
     "/chat/user/:id",
+    "/admin",
   ];
 
   const hideNavbarFooter = noNavFooterRoutes.some((route) =>
@@ -36,7 +46,7 @@ import MyMarketListPage from "./pages/MyMarket";
 
       {!hideNavbarFooter && <Navbar />}
 
-      {/* Routes */}
+      {/* client Routes */}
       <Routes>
         <Route path={paths.home} element={<Home />} />
         <Route path={paths.products} element={<ProductListing />} />
@@ -45,6 +55,13 @@ import MyMarketListPage from "./pages/MyMarket";
         <Route path={paths.subCategories} element={<SubCategories />} />
         <Route path="/search" element={<ProductListing />} />
         <Route path={paths.mymarket} element={<MyMarketListPage />} />
+
+        <Route path={paths.admin} element={<AdminRouting />}>
+          <Route path="products" element={<AdminProducts />} />
+          <Route path="categories" element={<AdminCategories />} />
+          <Route path="subcategories" element={<AdminSubcategories />} />
+          <Route path="users" element={<AdminUsers />} />
+        </Route>
 
         {/* Chat Pages */}
         <Route path="/chat/home" element={<ChatPage />} />
@@ -63,4 +80,4 @@ import MyMarketListPage from "./pages/MyMarket";
   );
 };
 
-export default AppRouting
+export default AppRouting;

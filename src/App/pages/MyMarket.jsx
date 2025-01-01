@@ -1,6 +1,7 @@
 import React from "react";
 import { useMyMarketAction } from "../../action/mymarket";
 import { Link } from "react-router-dom";
+import ProductCard from "../components/reuseable/ProductCard";
 
 const MyMarketListPage = () => {
   const {
@@ -23,25 +24,10 @@ const MyMarketListPage = () => {
         {wishlist.products.length === 0 ? (
           <p className="text-gray-500">No products in the wishlist.</p>
         ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
             {wishlist.products.map((item) => (
-                
-                <div
-                key={item.id}
-                className="bg-white rounded-md shadow-md hover:shadow-lg transition-shadow duration-300 p-4 flex flex-col"
-                >
-                <Link key={item.id} to={`/products/${item.id}`}>
-                <img src={item?.thumbnail} alt={item.name} className="w-full h-32 object-cover mb-3 rounded-md" />
-                </Link>
-                <h3 className="text-sm font-medium text-gray-800 mb-2">{item.title}</h3>
-                <p className="text-gray-500 mb-3 text-sm overflow-hidden text-clip">{item.price}</p>
-                <button
-                  onClick={() => removeProductFromWishlist(item.id)}
-                  className="mt-auto bg-red-600 text-white px-4 py-1 rounded-md hover:bg-red-700 transition-colors duration-200 text-sm"
-                  >
-                  Remove
-                </button>
-              </div>
+              <ProductCard product={item} key={item.id} removeProductFromWishlist={removeProductFromWishlist}/>
+
             ))}
           </div>
         )}
