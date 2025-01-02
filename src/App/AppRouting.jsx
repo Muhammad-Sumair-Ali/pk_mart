@@ -23,6 +23,8 @@ import AdminCategories from "./pages/admin/categories.admin";
 import AdminSubcategories from "./pages/admin/subcats.admin";
 import AdminUsers from "./pages/admin/users.admin";
 import AdminRouting from "./pages/admin/AdminRouting";
+import AdminReports from "./pages/admin/reports.admin";
+import AdminDashboard from "./pages/admin/common/dashboard.admin";
 
 const AppRouting = () => {
   const location = useLocation();
@@ -56,11 +58,14 @@ const AppRouting = () => {
         <Route path="/search" element={<ProductListing />} />
         <Route path={paths.mymarket} element={<MyMarketListPage />} />
 
+        {/* Admin routes */}
         <Route path={paths.admin} element={<AdminRouting />}>
-          <Route path="products" element={<AdminProducts />} />
-          <Route path="categories" element={<AdminCategories />} />
-          <Route path="subcategories" element={<AdminSubcategories />} />
-          <Route path="users" element={<AdminUsers />} />
+          <Route path={paths.adminDashboardHome} element={<AdminDashboard />} />
+          <Route path={paths.adminProducts} element={<AdminProducts />} />
+          <Route path={paths.adminCategories} element={<AdminCategories />} />
+          <Route path={paths.adminSubcategories} element={<AdminSubcategories />} />
+          <Route path={paths.adminUsers} element={<AdminUsers />} />
+          <Route path={paths.adminreports} element={<AdminReports />} />
         </Route>
 
         {/* Chat Pages */}

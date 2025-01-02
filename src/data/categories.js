@@ -1,7 +1,6 @@
 export const categories = [
   {
     title: "Apparel, Clothing & Garments",
-    image: "https://wearochre.com/cdn/shop/files/Resize_0125_COR-121_4.jpg?v=1729587866&width=360",
     subcategories: [
       {
         name: "Kids Wear",
