@@ -157,8 +157,12 @@ const AdminCategories = () => {
                   alt={sub.name}
                   className="w-full h-28 object-contain m-auto"
                   />
-                <p className="flex flex-wrap justify-center m-auto gap-1 my-2 w-5/6 text-sm lg:text-md" >{sub.types.map((type) => 
-                <p className="bg-gray-200 rounded-lg  p-1"> {type}</p>)}</p>
+
+                <div className="flex flex-wrap justify-center m-auto gap-1 my-2 w-5/6 text-sm lg:text-md" >
+                {sub.types.map((type,index) => 
+                <p key={index} className="bg-gray-200 rounded-lg  p-1"> {type}</p>)}
+                </div>
+                
               </div>
               <button
                 className="bg-red-500 text-white px-2 py-1 w-3/4 m-2 rounded"
