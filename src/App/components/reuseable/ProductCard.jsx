@@ -4,9 +4,9 @@ import GetBestPriceModal from "../modal/GetBestPriceModal";
 import { EllipsisVerticalIcon } from "@heroicons/react/20/solid";
 import { useMyMarketAction } from "../../../action/mymarket";
 
-const ProductCard = ({ product ,removeProductFromWishlist}) => {
+const ProductCard = ({ product, removeProductFromWishlist }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const { addProductToWishlist } = useMyMarketAction()
+  const { addProductToWishlist } = useMyMarketAction();
   const handleShare = () => {
     if (navigator.share) {
       navigator
@@ -43,6 +43,25 @@ const ProductCard = ({ product ,removeProductFromWishlist}) => {
             >
               <EllipsisVerticalIcon className="w-5 h-5 text-gray-700" />
             </button>
+            <button
+              onClick={handleShare}
+              className="px-2 gap-x-1 absolute top-2 left-2 flex items-center py-2 bg-white rounded-full text-sm text-gray-700  hover:bg-gray-100 transition duration-200"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="size-5 text-blue-600"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.935 2.186 2.25 2.25 0 0 0-3.935-2.186Zm0-12.814a2.25 2.25 0 1 0 3.933-2.185 2.25 2.25 0 0 0-3.933 2.185Z"
+                />
+              </svg>
+            </button>
 
             {/* Dropdown Menu */}
             {dropdownOpen && (
@@ -50,8 +69,8 @@ const ProductCard = ({ product ,removeProductFromWishlist}) => {
                 <ul className="py-2 text-sm text-green-600">
                   <li>
                     <button
-                    onClick={() => addProductToWishlist(product)}
-                      className="flex items-center gap-x-1 px-2 py-2 rounded-md hover:bg-gray-100 transition duration-200"
+                      onClick={() => addProductToWishlist(product)}
+                      className="flex items-center gap-x-1 px-2 py-2 text-sm rounded-md hover:bg-gray-100 transition duration-200"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -59,7 +78,7 @@ const ProductCard = ({ product ,removeProductFromWishlist}) => {
                         viewBox="0 0 24 24"
                         strokeWidth={1.5}
                         stroke="currentColor"
-                        className="size-4 text-green-800"
+                        className="size-5 text-green-800"
                       >
                         <path
                           strokeLinecap="round"
@@ -75,7 +94,7 @@ const ProductCard = ({ product ,removeProductFromWishlist}) => {
                   <li>
                     <button
                       onClick={handleShare}
-                      className="px-2 gap-x-1 flex items-center py-2 text-sm text-gray-700 rounded-md hover:bg-gray-100 transition duration-200"
+                      className="px-2 gap-x-1 flex items-center py-2 text-sm text-red-700 rounded-md hover:bg-gray-100 transition duration-200"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -83,15 +102,15 @@ const ProductCard = ({ product ,removeProductFromWishlist}) => {
                         viewBox="0 0 24 24"
                         strokeWidth={1.5}
                         stroke="currentColor"
-                        className="size-4 text-blue-600"
+                        className="size-5 text-red-600"
                       >
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          d="M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.935 2.186 2.25 2.25 0 0 0-3.935-2.186Zm0-12.814a2.25 2.25 0 1 0 3.933-2.185 2.25 2.25 0 0 0-3.933 2.185Z"
+                          d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"
                         />
                       </svg>
-                      Share This Product
+                      Report This Product
                     </button>
                   </li>
                 </ul>
@@ -114,14 +133,20 @@ const ProductCard = ({ product ,removeProductFromWishlist}) => {
               </p>
             </div>
 
-            <div className="flex items-center gap-x-1 py-2 px-1 justify-between mt-1 md:mt-2">
-              {removeProductFromWishlist ? 
-              <button onClick={() =>  removeProductFromWishlist(product.id)} className="w-20 md:w-24 border border-red-600 bg-red-400 p-1 px-2 text-black text-xs rounded-2xl hover:bg-gradient-to-r
-               from-red-600 to-red-500 hover:text-white transition duration-300">
-                Delete
-              </button> : <button className="w-20 md:w-24 border border-gray-300 p-1 px-2 text-black text-xs rounded-2xl hover:bg-gradient-to-r from-indigo-600 to-violet-500 hover:text-white transition duration-300">
-                Call Now
-              </button>  }
+            <div className="flex items-center gap-x-1 xl:px-4 py-2 px-1 justify-between mt-1 md:mt-2">
+              {removeProductFromWishlist ? (
+                <button
+                  onClick={() => removeProductFromWishlist(product.id)}
+                  className="w-20 md:w-24 border border-red-600 bg-red-400 p-1 px-2 text-black text-xs rounded-2xl hover:bg-gradient-to-r
+               from-red-600 to-red-500 hover:text-white transition duration-300"
+                >
+                  Delete
+                </button>
+              ) : (
+                <button className="w-20 md:w-24 border border-gray-300 p-1 px-2 text-black text-xs rounded-2xl hover:bg-gradient-to-r from-indigo-600 to-violet-500 hover:text-white transition duration-300">
+                  Call Now
+                </button>
+              )}
               <GetBestPriceModal product={product} />
             </div>
           </div>

@@ -17,7 +17,7 @@ const Heading = ({ desc, title, icon }) => {
         className="px-4 py-2 bg-white text-blue-600 font-medium rounded-md shadow hover:bg-blue-100 transition"
         onClick={() => alert("Exporting data...")}
       >
-        Hello Sir 
+        Hello !!
       </button>
     </div>
   );

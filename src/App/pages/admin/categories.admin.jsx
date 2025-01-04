@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import Heading from "../../components/panel/Heading";
-import { FaList } from "react-icons/fa";
+import {
+  FaBoxes,
+  FaCheckCircle,
+  FaList,
+  FaRegTimesCircle,
+  FaStar,
+} from "react-icons/fa";
 
 const AdminCategories = () => {
   const [categories, setCategories] = useState([
@@ -29,6 +35,37 @@ const AdminCategories = () => {
       ],
     },
   ]);
+
+  const summaryCards = [
+    {
+      title: "Total Categories",
+      count: "25",
+      icon: <FaBoxes />,
+      bgClass: "from-purple-500 to-purple-400",
+      textClass: "text-white",
+    },
+    {
+      title: "Active Categories",
+      count: "20",
+      icon: <FaCheckCircle />,
+      bgClass: "from-green-500 to-green-400",
+      textClass: "text-white",
+    },
+    {
+      title: "Inactive Categories",
+      count: "5",
+      icon: <FaRegTimesCircle />,
+      bgClass: "from-red-500 to-red-400",
+      textClass: "text-white",
+    },
+    {
+      title: "Most Popular Category",
+      count: "Electronics",
+      icon: <FaStar />,
+      bgClass: "from-yellow-500 to-yellow-400",
+      textClass: "text-white",
+    },
+  ];
 
   const [categoryTitle, setCategoryTitle] = useState("");
   const [subcategoryName, setSubcategoryName] = useState("");
@@ -75,12 +112,36 @@ const AdminCategories = () => {
 
   return (
     <>
-
       <Heading
         icon={<FaList />}
         title="Manage Categories"
         desc="Create new category with subCategories"
       />
+
+      {/* Summary Analytics */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 my-4 text-white">
+        {summaryCards.map((card, index) => (
+          <div
+            key={index}
+            className={`bg-gradient-to-r ${card.bgClass} p-2 md:p-3 md:py-4 rounded-lg shadow-md flex items-center space-x-2`}
+          >
+            <div className="text-2xl rounded-full bg-gray-300 bg-opacity-50 p-2 md:p-3">
+              {card.icon}
+            </div>
+            <div>
+              <h3 className="text-md md:text-lg font-semibold">{card.title}</h3>
+              <p
+                className={`${
+                  typeof card.count === "number" ? "text-3xl" : "text-lg"
+                } font-bold mt-2 `}
+              >
+                {card.count}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
       {/* Add New Category */}
       <div className="mb-6">
         <input
@@ -100,14 +161,14 @@ const AdminCategories = () => {
 
       {/* Categories List */}
       {categories.map((category, index) => (
-        <div key={index} className="border p-4 mb-4 rounded bg-gray-100 shadow">
-          <div className="flex justify-between  items-center">
+        <div key={index} className="border p-3 mb-4 rounded bg-gray-100 shadow">
+          <div className="flex justify-between items-center">
             <h3 className="text-xl font-bold">{category.title}</h3>
             <button
               className="bg-red-500 text-white px-2 py-1 rounded"
               onClick={() => deleteCategory(index)}
             >
-              Delete
+              Delete Category
             </button>
           </div>
 
@@ -142,37 +203,38 @@ const AdminCategories = () => {
             </button>
           </div>
 
-          <div className="grid grid-cols-4 gap-4">
-
-          {/* Subcategories List */}
-          {category.subcategories.map((sub, subIndex) => (
-            <div
-            key={subIndex}
-              className="border py-2 rounded mt-4 bg-white flex w-56 justify-center text-center flex-col items-center"
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+            {/* Subcategories List */}
+            {category.subcategories.map((sub, subIndex) => (
+              <div
+                key={subIndex}
+                className="border rounded-lg bg-white p-1 shadow-md flex flex-col items-center text-center"
               >
-              <div>
-                <h4 className="font-bold">{sub.name}</h4>
+                <h4 className="font-semibold text-lg mb-2">{sub.name}</h4>
                 <img
                   src={sub.image}
                   alt={sub.name}
-                  className="w-full h-28 object-contain m-auto"
-                  />
-
-                <div className="flex flex-wrap justify-center m-auto gap-1 my-2 w-5/6 text-sm lg:text-md" >
-                {sub.types.map((type,index) => 
-                <p key={index} className="bg-gray-200 rounded-lg  p-1"> {type}</p>)}
+                  className="w-full h-32 object-cover rounded-md mb-3"
+                />
+                <div className="flex flex-wrap justify-center gap-2 h-full">
+                  {sub.types.map((type, index) => (
+                    <p
+                      key={index}
+                      className="bg-gray-200 text-sm px-2 py-1 h-fit rounded-lg"
+                    >
+                      {type}
+                    </p>
+                  ))}
                 </div>
-                
-              </div>
-              <button
-                className="bg-red-500 text-white px-2 py-1 w-3/4 m-2 rounded"
-                onClick={() => deleteSubcategory(index, subIndex)}
+                <button
+                  className="bg-red-500 text-white px-3 py-2 w-full  rounded-md my-2"
+                  onClick={() => deleteSubcategory(index, subIndex)}
                 >
-                Delete
-              </button>
-            </div>
-          ))}
-      </div>
+                  Delete
+                </button>
+              </div>
+            ))}
+          </div>
         </div>
       ))}
     </>

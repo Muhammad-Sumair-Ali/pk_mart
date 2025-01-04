@@ -277,14 +277,13 @@ const ProductListingPage = () => {
         />
       </div>
 
-      <div className="flex flex-col md:flex-row gap-4 px-4 md:px-8 lg:px-16 py-4">
-      <button
+      <div className="flex flex-col md:flex-row gap-4 px-4 md:px-6 lg:px-11 py-4">
+        <button
           className="md:hidden bg-blue-500 text-white py-2 px-4 rounded-lg shadow-md mb-4"
           onClick={() => setIsFilterModalOpen(true)}
         >
           Show Filters
         </button>
-
 
         {/* Filter Sidebar Modal */}
         {isFilterModalOpen && (
@@ -300,7 +299,76 @@ const ProductListingPage = () => {
                 </button>
               </div>
               <aside className="md:w-1/4 bg-gray-100 p-4 rounded-lg shadow-md">
-          {/* <h3 className="text-lg font-semibold mb-4">Filters</h3> */}
+                {/* <h3 className="text-lg font-semibold mb-4">Filters</h3> */}
+
+                {/* City Filter */}
+                <div className="mb-6">
+                  <h4 className="font-medium mb-2">Cities</h4>
+                  <input
+                    type="text"
+                    placeholder="Search by city"
+                    value={searchCity}
+                    onChange={handleCitySearch}
+                    className="w-full px-4 py-2 border rounded-lg"
+                  />
+                  {citySuggestions.length > 0 && (
+                    <ul className="absolute bg-white border mt-1  max-h-40 overflow-auto rounded-lg shadow-lg z-10">
+                      {citySuggestions.map((city, index) => (
+                        <li
+                          key={index}
+                          onClick={() => handleCitySelect(city)}
+                          className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
+                        >
+                          {city}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+
+                {/* Seller Type Filter */}
+                <div className="mb-6">
+                  <h4 className="font-medium">Seller Types</h4>
+                  <div className="flex flex-wrap gap-3">
+                    {sellerTypes.map((type, index) => (
+                      <button
+                        key={index}
+                        onClick={() =>
+                          handleFilterChange(
+                            "sellerTypes",
+                            filters.sellerTypes.includes(type)
+                              ? filters.sellerTypes.filter(
+                                  (item) => item !== type
+                                )
+                              : [...filters.sellerTypes, type]
+                          )
+                        }
+                        className={`p-2 rounded-lg ${
+                          filters.sellerTypes.includes(type)
+                            ? "bg-blue-500 text-white"
+                            : "bg-gray-200"
+                        }`}
+                      >
+                        {type}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Reset Filters */}
+                <button
+                  onClick={handleResetFilters}
+                  className="w-full px-4 py-2 bg-red-500 text-white rounded-lg"
+                >
+                  Reset Filters
+                </button>
+              </aside>
+            </div>
+          </div>
+        )}
+
+        <aside className="md:w-1/4 bg-gray-100 p-4 rounded-lg shadow-md hidden sm:block">
+          <h3 className="text-lg font-semibold mb-4">Filters</h3>
 
           {/* City Filter */}
           <div className="mb-6">
@@ -360,74 +428,7 @@ const ProductListingPage = () => {
             className="w-full px-4 py-2 bg-red-500 text-white rounded-lg"
           >
             Reset Filters
-          </button> 
-        </aside>
-            </div>
-          </div>
-        )}
-
-        <aside className="md:w-1/4 bg-gray-100 p-4 rounded-lg shadow-md hidden sm:block">
-          <h3 className="text-lg font-semibold mb-4">Filters</h3>
-
-          {/* City Filter */}
-          <div className="mb-6">
-            <h4 className="font-medium mb-2">Cities</h4>
-            <input
-              type="text"
-              placeholder="Search by city"
-              value={searchCity}
-              onChange={handleCitySearch}
-              className="w-full px-4 py-2 border rounded-lg"
-            />
-            {citySuggestions.length > 0 && (
-              <ul className="absolute bg-white border mt-1  max-h-40 overflow-auto rounded-lg shadow-lg z-10">
-                {citySuggestions.map((city, index) => (
-                  <li
-                    key={index}
-                    onClick={() => handleCitySelect(city)}
-                    className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
-                  >
-                    {city}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-
-          {/* Seller Type Filter */}
-          <div className="mb-6">
-            <h4 className="font-medium mb-2">Seller Types</h4>
-            <div className="flex flex-wrap ga p-2">
-              {sellerTypes.map((type, index) => (
-                <button
-                  key={index}
-                  onClick={() =>
-                    handleFilterChange(
-                      "sellerTypes",
-                      filters.sellerTypes.includes(type)
-                        ? filters.sellerTypes.filter((item) => item !== type)
-                        : [...filters.sellerTypes, type]
-                    )
-                  }
-                  className={`px-3 py-1 rounded-lg ${
-                    filters.sellerTypes.includes(type)
-                      ? "bg-blue-500 text-white"
-                      : "bg-gray-200"
-                  }`}
-                >
-                  {type}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Reset Filters */}
-          <button
-            onClick={handleResetFilters}
-            className="w-full px-4 py-2 bg-red-500 text-white rounded-lg"
-          >
-            Reset Filters
-          </button> 
+          </button>
         </aside>
 
         <div className="md:w-3/4">
@@ -444,7 +445,7 @@ const ProductListingPage = () => {
                   ? `Products in "${filters.cities.join(", ")}" (${
                       filteredProducts.length
                     })`
-                  : `Products (${filteredProducts.length})`}
+                  : ``}
               </h2>
             </div>
           </div>

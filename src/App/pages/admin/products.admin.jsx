@@ -49,7 +49,7 @@ const AdminProducts = () => {
         {summaryCards.map((card, index) => (
           <div
             key={index}
-            className={`bg-gradient-to-r ${card.bgClass} p-2 md:p-4 md:py-5 rounded-lg shadow-md flex items-center space-x-2`}
+            className={`bg-gradient-to-r ${card.bgClass} p-2 md:p-3 md:py-4 rounded-lg shadow-md flex items-center space-x-2`}
           >
             <div className="text-2xl rounded-full bg-gray-300 bg-opacity-50 p-2 md:p-3">{card.icon}</div>
             <div>

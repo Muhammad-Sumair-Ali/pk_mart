@@ -8,7 +8,7 @@ import { paths } from "../helper/paths";
 import Home from "./pages/Home";
 import ProductListing from "./pages/ProductListing";
 import ProductDetail from "./pages/ProductDetails";
-import ProfilePage from "./pages/common/Profile";
+import ProfilePage from "./pages/common/SellerProfile";
 import SubCategories from "./pages/SubCategories";
 import ScrollRestoration from "./components/panel/ScrollRestoration";
 import Login from "./pages/auth/Login";
@@ -25,6 +25,8 @@ import AdminUsers from "./pages/admin/users.admin";
 import AdminRouting from "./pages/admin/AdminRouting";
 import AdminReports from "./pages/admin/reports.admin";
 import AdminDashboard from "./pages/admin/common/dashboard.admin";
+import AdminProfile from "./pages/admin/common/profile.admin";
+import UserProfile from "./pages/common/UserProfile";
 
 const AppRouting = () => {
   const location = useLocation();
@@ -54,6 +56,7 @@ const AppRouting = () => {
         <Route path={paths.products} element={<ProductListing />} />
         <Route path={paths.productDetails} element={<ProductDetail />} />
         <Route path={paths.profile} element={<ProfilePage />} />
+        <Route path="/user/profile" element={<UserProfile />} />
         <Route path={paths.subCategories} element={<SubCategories />} />
         <Route path="/search" element={<ProductListing />} />
         <Route path={paths.mymarket} element={<MyMarketListPage />} />
@@ -66,6 +69,7 @@ const AppRouting = () => {
           <Route path={paths.adminSubcategories} element={<AdminSubcategories />} />
           <Route path={paths.adminUsers} element={<AdminUsers />} />
           <Route path={paths.adminreports} element={<AdminReports />} />
+          <Route path={paths.adminProfile} element={<AdminProfile />} />
         </Route>
 
         {/* Chat Pages */}
