@@ -2,11 +2,8 @@ import React, { useState } from "react";
 import Heading from "../../components/panel/Heading";
 import {
   FaUsers,
-  FaUserPlus,
-  FaStar,
   FaShoppingCart,
   FaRegUser,
-  FaRegThumbsUp,
   FaMapMarkerAlt,
 } from "react-icons/fa";
 import { AiOutlineSearch, AiOutlineArrowUp } from "react-icons/ai";
@@ -89,12 +86,6 @@ const AdminUsers = () => {
     },
   ]);
 
-  const filteredUsers = users.filter(
-    (user) =>
-      (user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        user.email.toLowerCase().includes(searchTerm.toLowerCase())) &&
-      (roleFilter === "all" || user.role === roleFilter)
-  );
   // Card Data
   const stats = [
     {
@@ -119,13 +110,6 @@ const AdminUsers = () => {
       count: 700,
     },
     {
-      title: "Total Active Users",
-      description: "Number of active users on the platform",
-      icon: <FaRegUser className="text-4xl" />,
-      bgColor: "bg-gradient-to-r from-purple-500 to-fuchsia-600",
-      count: 700,
-    },
-    {
       title: "Total Visitors",
       description: "Number of new visitors to the platform",
       icon: <LiaUserFriendsSolid className="text-4xl" />,
@@ -139,19 +123,78 @@ const AdminUsers = () => {
       bgColor: "bg-gradient-to-r from-blue-500 to-cyan-600",
       count: 200,
     },
+    {
+      title: "Active Users",
+      description: "Number of active users on the platform",
+      icon: <FaRegUser className="text-4xl" />,
+      bgColor: "bg-gradient-to-r from-green-500 to-lime-600",
+      count: 350,
+    },
+    {
+      title: " InActive Users",
+      description: "Number of inactive users on the platform",
+      icon: <FaRegUser className="text-4xl" />,
+      bgColor: "bg-gradient-to-r from-red-500 to-orange-600",
+      count: 270,
+    },
   ];
+
+  const [newUser, setNewUser] = useState({
+    name: "",
+    email: "",
+    role: "buyer",
+    location: "",
+  });
+
+  const handleAddUser = () => {
+    const id = users.length + 1;
+    setUsers([
+      ...users,
+      {
+        ...newUser,
+        id,
+        lastLogin: new Date(),
+        recentActivity: "Newly added user",
+      },
+    ]);
+    setNewUser({ name: "", email: "", role: "buyer", location: "" });
+  };
+
+  const handleDeleteUser = (id) => {
+    setUsers(users.filter((user) => user.id !== id));
+  };
+
+  const handleEditUser = (id, updatedUser) => {
+    setUsers(
+      users.map((user) => (user.id === id ? { ...user, ...updatedUser } : user))
+    );
+  };
+
+  const isUserActive = (lastLogin) => {
+    const twentyDaysAgo = new Date();
+    twentyDaysAgo.setDate(twentyDaysAgo.getDate() - 20);
+    return new Date(lastLogin) >= twentyDaysAgo;
+  };
+
+  const filteredUsers = users.filter(
+    (user) =>
+      (user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        user.email.toLowerCase().includes(searchTerm.toLowerCase())) &&
+      (roleFilter === "all" || user.role === roleFilter)
+  );
 
   return (
     <>
       <Heading
         icon={<FaUsers />}
         title="Users Management"
-        desc="Manage Users, Approve Sellers, and More"
+        desc="Manage Users, Assign Roles, and More"
       />
 
       <div className="mb-6">
         {/* Dashboard Stats Cards */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-2 lg:gap-3  mb-8">
+          {" "}
           {stats.map((card, index) => (
             <div
               key={index}
@@ -178,152 +221,144 @@ const AdminUsers = () => {
         </div>
       </div>
 
-      {/* Visitor Insights Section */}
-      <div className="bg-gray-100 rounded-lg shadow-md mt-6 p-6">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-4">
-          Visitor Insights
-        </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div className="flex items-center p-4 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-lg shadow text-white">
-            <div className="text-3xl font-bold">1,1830</div>
-            <div className="ml-4">
-              <h4 className="text-lg font-semibold">Total Visitors</h4>
-              <p className="text-sm">Visitors in the this month</p>
-            </div>
-          </div>
-          <div className="flex items-center p-4 bg-gradient-to-r from-green-400 to-teal-500 rounded-lg shadow text-white">
-            <div className="text-3xl font-bold">383</div>
-            <div className="ml-4">
-              <h4 className="text-lg font-semibold">Returning Visitors</h4>
-              <p className="text-sm">Users who visited again</p>
-            </div>
-          </div>
-          <div className="flex items-center p-4 bg-gradient-to-r from-blue-500 to-cyan-600 rounded-lg shadow text-white">
-            <div className="text-3xl font-bold">7</div>
-            <div className="ml-4">
-              <h4 className="text-lg font-semibold">Countries</h4>
-              <p className="text-sm">Visitor locations worldwide</p>
-            </div>
+      <div className="mb-6">
+        {/* Add New User */}
+        <div className="mb-4 p-2 bg-gray-100 py-4 rounded-lg shadow-md">
+          <h3 className="text-lg font-semibold mb-2">Add New User</h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+            <input
+              type="text"
+              value={newUser.name}
+              onChange={(e) => setNewUser({ ...newUser, name: e.target.value })}
+              placeholder="Name"
+              className="border rounded-lg px-4 py-2"
+            />
+            <input
+              type="email"
+              value={newUser.email}
+              onChange={(e) =>
+                setNewUser({ ...newUser, email: e.target.value })
+              }
+              placeholder="Email"
+              className="border rounded-lg px-4 py-2"
+            />
+            <input
+              type="text"
+              value={newUser.location}
+              onChange={(e) =>
+                setNewUser({ ...newUser, location: e.target.value })
+              }
+              placeholder="Location"
+              className="border rounded-lg px-4 py-2"
+            />
+            <select
+              value={newUser.role}
+              onChange={(e) => setNewUser({ ...newUser, role: e.target.value })}
+              className="border rounded-lg px-4 py-2"
+            >
+              <option value="buyer">Buyer</option>
+              <option value="seller">Seller</option>
+              <option value="manager">Manager</option>
+            </select>
+
+            <button
+              onClick={handleAddUser}
+              className="mx-2 px-3 py-2 bg-blue-500 text-white rounded-lg"
+            >
+              Add User
+            </button>
           </div>
         </div>
-        <div className="mt-6">
-          <h4 className="text-lg font-semibold text-gray-800">Top Locations</h4>
-          <ul className="mt-3 space-y-2">
-            <li className="flex items-center justify-between text-gray-600">
-              <span className="font-medium">United States</span>
-              <span>440 Visitors</span>
-            </li>
-            <li className="flex items-center justify-between text-gray-600">
-              <span className="font-medium">Pakistan</span>
-              <span>420 Visitors</span>
-            </li>
-            <li className="flex items-center justify-between text-gray-600">
-              <span className="font-medium">India</span>
-              <span>300 Visitors</span>
-            </li>
-            <li className="flex items-center justify-between text-gray-600">
-              <span className="font-medium">United Kingdom</span>
-              <span>150 Visitors</span>
-            </li>
-            <li className="flex items-center justify-between text-gray-600">
-              <span className="font-medium">Canada</span>
-              <span>100 Visitors</span>
-            </li>
-            <li className="flex items-center justify-between text-gray-600">
-              <span className="font-medium">Australia</span>
-              <span>80 Visitors</span>
-            </li>
-          </ul>
+
+        {/* Filters */}
+        <div className="flex items-center justify-between my-5 bg-gray-100 p-2 rounded-md">
+          <div className="relative w-full max-w-md">
+            <input
+              type="text"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              placeholder="Search Users By Name or Email"
+              className="pl-10 pr-4 py-2 border rounded-lg w-full"
+            />
+            <AiOutlineSearch className="absolute left-3 top-2.5 text-gray-500" />
+          </div>
+          <select
+            className="border rounded-lg px-4 py-2"
+            value={roleFilter}
+            onChange={(e) => setRoleFilter(e.target.value)}
+          >
+            <option value="all">All Roles</option>
+            <option value="buyer">Buyers</option>
+            <option value="seller">Sellers</option>
+            <option value="manager">Managers</option>
+          </select>
         </div>
-      </div>
 
-
-      {/* Filters */}
-      <div className="flex items-center justify-between mb-4 bg-gray-100 p-2 rounded-md">
-        <div className="relative w-full max-w-md">
-          <input
-            type="text"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            placeholder="Search Users By Name"
-            className="pl-10 pr-4 py-2 border rounded-lg w-full"
-          />
-          <AiOutlineSearch className="absolute left-3 top-2.5 text-gray-500" />
-        </div>
-        <select
-          className="border rounded-lg px-4 py-2"
-          value={roleFilter}
-          onChange={(e) => setRoleFilter(e.target.value)}
-        >
-          <option value="all">All Roles</option>
-          <option value="buyer">Buyers</option>
-          <option value="seller">Sellers</option>
-        </select>
-      </div>
-
-      {/* Users Table */}
-      <div className="bg-white rounded-lg shadow-md overflow-hidden">
-        <h3 className="text-xl font-semibold text-gray-800 p-4 bg-gradient-to-r from-green-400 to-blue-500">
-          All Users Recent Activites
-        </h3>
-        <table className="min-w-full">
-          <thead>
-            <tr className="bg-gray-100">
-              <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">
-                Name
-              </th>
-              <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">
-                Email
-              </th>
-              <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">
-                Role
-              </th>
-              <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">
-                Location
-              </th>
-              <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">
-                Recent Activity
-              </th>
-              <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">
-                Actions
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredUsers.map((user) => (
-              <tr key={user.id} className="hover:bg-gray-50 transition">
-                <td className="px-6 py-4 text-sm text-gray-800">{user.name}</td>
-                <td className="px-6 py-4 text-sm text-gray-600">
-                  {user.email}
-                </td>
-                <td className="px-6 py-4 text-sm text-gray-600">{user.role}</td>
-                <td className="px-6 py-4 text-sm text-gray-600">
-                  <FaMapMarkerAlt className="inline mr-1" /> {user.location}
-                </td>
-                <td className="px-6 py-4 text-sm text-gray-600">
-                  {user.recentActivity}
-                </td>
-                <td className="px-6 py-4 text-sm space-x-2">
-                  <button
-                    className="text-blue-500 hover:text-blue-600"
-                    onClick={() => alert("View User Details")}
-                  >
-                    View
-                  </button>
-                  <button
-                    className="text-red-500 hover:text-gray-600"
-                    disabled={!user.isApproved}
-                  >
-                    Disable
-                  </button>
-                </td>
+        {/* Users Table */}
+        <div className="bg-white rounded-lg shadow-md overflow-hidden">
+          <h3 className="text-xl font-semibold text-gray-800 p-4 bg-gradient-to-r from-green-400 to-blue-500">
+            All Users
+          </h3>
+          <table className="min-w-full">
+            <thead>
+              <tr className="bg-gray-100">
+                <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">
+                  Name
+                </th>
+                <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">
+                  Email
+                </th>
+                <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">
+                  Role
+                </th>
+                <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">
+                  Location
+                </th>
+                <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">
+                  Status
+                </th>
+                <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">
+                  Actions
+                </th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+            </thead>
+            <tbody>
+              {filteredUsers.map((user) => (
+                <tr
+                  key={user.id}
+                  className="hover:bg-gray-100 text-sm transition"
+                >
+                  <td className="px-6 py-4  text-gray-800">{user.name}</td>
+                  <td className="px-6 py-4 text-gray-600">{user.email}</td>
+                  <td className="px-6 py-4  text-gray-600">{user.role}</td>
+                  <td className="px-6 py-4 text-gray-600">
+                    <FaMapMarkerAlt className="inline mr-1" /> {user.location}
+                  </td>
+                  <td className="px-6 py-4 text-gray-600">
+                    {isUserActive(user?.lastLogin) ? "Active" : "Inactive"}
+                  </td>
 
-      
+                  <td className="px-5 py-4 text-md flex space-x-2 gap-2 justify-center ">
+                    <button
+                      className=" text-blue-600 p-2 text-sm  rounded-2xl  hover:bg-gradient-to-r
+                    from-indigo-600 to-violet-500 hover:text-white transition duration-300"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => handleDeleteUser(user.id)}
+                      className=" text-red-600 p-2 text-sm  rounded-2xl  hover:bg-gradient-to-r
+        from-red-600 to-orange-500 hover:text-white transition duration-300"
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </>
   );
 };

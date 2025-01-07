@@ -27,6 +27,7 @@ import AdminReports from "./pages/admin/reports.admin";
 import AdminDashboard from "./pages/admin/common/dashboard.admin";
 import AdminProfile from "./pages/admin/common/profile.admin";
 import UserProfile from "./pages/common/UserProfile";
+import NotificationAdmin from "./pages/admin/notification.admin";
 
 const AppRouting = () => {
   const location = useLocation();
@@ -69,6 +70,7 @@ const AppRouting = () => {
           <Route path={paths.adminSubcategories} element={<AdminSubcategories />} />
           <Route path={paths.adminUsers} element={<AdminUsers />} />
           <Route path={paths.adminreports} element={<AdminReports />} />
+          <Route path={paths.adminNotification} element={<NotificationAdmin />} />
           <Route path={paths.adminProfile} element={<AdminProfile />} />
         </Route>
 

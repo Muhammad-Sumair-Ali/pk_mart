@@ -22,6 +22,7 @@ export const paths = {
   adminSubcategories: "/admin/dashboard/subcategories",
   adminUsers: "/admin/dashboard/users",
   adminreports: "/admin/dashboard/reports",
+  adminNotification: "/admin/dashboard/notification",
   // adminapprovals: "/admin/dashboard/approvals",
 
   buyerDashboard: "/buyer/dashboard",
@@ -30,7 +31,7 @@ export const paths = {
 };
 
 
-import { FaUser, FaBox, FaList, FaTags, FaUsers, FaChartBar, FaChartPie } from "react-icons/fa";
+import { FaUser, FaBox, FaList, FaTags, FaUsers, FaChartBar, FaChartPie, FaBell } from "react-icons/fa";
 
 export const adminSidebarLinks = [
   { name: "Dashboard", path: "/admin/dashboard/home", icon: <FaChartPie /> },
@@ -38,5 +39,6 @@ export const adminSidebarLinks = [
   { name: "Products", path: "/admin/dashboard/products", icon: <FaBox /> },
   { name: "Users", path: "/admin/dashboard/users", icon: <FaUsers /> },
   { name: "Reports", path: "/admin/dashboard/reports", icon: <FaChartBar /> },
+  { name: "Notifications", path: "/admin/dashboard/notification", icon: <FaBell /> },
   { name: "Profile", path: "/admin/dashboard/profile", icon: <FaUser /> },
 ];

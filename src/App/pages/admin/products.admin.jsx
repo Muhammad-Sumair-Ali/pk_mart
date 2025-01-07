@@ -1,6 +1,16 @@
 import React from "react";
 import Heading from "../../components/panel/Heading";
-import { FaBoxes, FaPlus, FaRegSadCry, FaTruck, FaRegCheckCircle, FaDollarSign, FaBox } from 'react-icons/fa'; 
+import {
+  FaBoxes,
+  FaPlus,
+  FaRegSadCry,
+  FaTruck,
+  FaRegCheckCircle,
+  FaDollarSign,
+  FaBox,
+} from "react-icons/fa";
+import { FaRegCircleCheck } from "react-icons/fa6";
+import ProductDetailModal from "../../components/modal/ProductDetailModal";
 
 const summaryCards = [
   {
@@ -25,16 +35,21 @@ const summaryCards = [
     textClass: "text-white",
   },
   {
-    title: "Approved Sellers",
+    title: "Approved Products",
     count: "320",
     icon: <FaRegCheckCircle />,
-    bgClass: "from-blue-500 to-blue-400",
+    bgClass: "from-blue-500 to-blue-800",
     textClass: "text-white",
   },
- 
+  {
+    title: "Pending Approvel Products",
+    count: "210",
+    icon: <FaRegCircleCheck />,
+    bgClass: "from-red-500 to-orange-400",
+    textClass: "text-white",
+  },
 ];
 const AdminProducts = () => {
- 
   return (
     <>
       {/* Page Heading */}
@@ -49,11 +64,13 @@ const AdminProducts = () => {
         {summaryCards.map((card, index) => (
           <div
             key={index}
-            className={`bg-gradient-to-r ${card.bgClass} p-2 md:p-3 md:py-4 rounded-lg shadow-md flex items-center space-x-2`}
+            className={`bg-gradient-to-r ${card.bgClass} p-2 md:p-3 rounded-lg shadow-md flex items-center space-x-2`}
           >
-            <div className="text-2xl rounded-full bg-gray-300 bg-opacity-50 p-2 md:p-3">{card.icon}</div>
+            <div className="text-2xl rounded-full bg-gray-300 bg-opacity-50 p-2 md:p-3">
+              {card.icon}
+            </div>
             <div>
-              <h3 className="text-md md:text-xl font-semibold">{card.title}</h3>
+              <h3 className="text-md md:text-lg font-semibold">{card.title}</h3>
               <p className="text-3xl font-bold mt-2">{card.count}</p>
             </div>
           </div>
@@ -108,7 +125,7 @@ const AdminProducts = () => {
               <th className="px-4 py-3 text-left font-semibold">Name</th>
               <th className="px-4 py-3 text-left font-semibold">Category</th>
               <th className="px-4 py-3 text-left font-semibold">Price</th>
-              <th className="px-4 py-3 text-left font-semibold">Stock</th>
+              <th className="px-4 py-3 text-left font-semibold">Views</th>
               <th className="px-4 py-3 text-left font-semibold">Actions</th>
             </tr>
           </thead>
@@ -152,11 +169,13 @@ const AdminProducts = () => {
                 <td className="px-4 py-3">{product.name}</td>
                 <td className="px-4 py-3">{product.category}</td>
                 <td className="px-4 py-3">{product.price}</td>
-                <td className="px-4 py-3">{product.stock}</td>
-                <td className="px-4 py-3">
-                  <button className="text-red-500 hover:underline">
-                    Delete
+                <td className="px-4 py-3">{3 + index * 7}</td>
+                <td className="py-3 flex gap-2 justify-center ">
+                  <button className=" text-red-600 p-2 text-sm  rounded-2xl  hover:bg-gradient-to-r
+        from-red-600 to-orange-500 hover:text-white transition duration-300">
+                    Disable
                   </button>
+                  <ProductDetailModal product={product} />
                 </td>
               </tr>
             ))}
