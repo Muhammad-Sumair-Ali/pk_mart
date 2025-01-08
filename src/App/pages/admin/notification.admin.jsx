@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { FaUser, FaExclamationTriangle, FaEnvelope, FaCogs } from 'react-icons/fa';
+import { FaUser, FaExclamationTriangle, FaEnvelope, FaCogs, FaBell } from 'react-icons/fa';
+import Heading from '../../components/panel/Heading';
 
 const NotificationAdmin = () => {
   const [notifications, setNotifications] = useState({
@@ -42,8 +43,14 @@ const NotificationAdmin = () => {
   );
 
   return (
-    <div className="p-5 rounded-md bg-gray-100 min-h-screen">
-      <h1 className="text-3xl font-bold mb-8 text-center">Admin Notifications</h1>
+    <>
+          <Heading
+        icon={<FaBell />}
+        title="Admin Notifications"
+        desc="Manage users reports , and More"
+      />
+
+    <div className="p-4 rounded-md bg-gray-100 min-h-screen">
 
       <div className="space-y-8">
         <Section
@@ -72,6 +79,7 @@ const NotificationAdmin = () => {
         />
       </div>
     </div>
+    </>
   );
 };
 

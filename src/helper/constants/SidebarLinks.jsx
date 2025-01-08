@@ -1,6 +1,7 @@
 import { HomeIcon, UserCircleIcon, InboxIcon, ArrowRightOnRectangleIcon } from '@heroicons/react/24/outline';
 import { paths } from "../paths";
 import { useAuth } from "../../context/AuthContext";
+import { FaInfo, FaWpforms } from 'react-icons/fa';
 
 // Logout function placeholder
 const Logout = () => {
@@ -71,6 +72,16 @@ const defaultLinks = [
     name: "Login",
     icon: <ArrowRightOnRectangleIcon className="w-6 h-6" />,
     path: paths.login,
+  },
+  {
+    name: "About us",
+    icon: <FaInfo className="w-6 h-6" />,
+    path: paths.aboutus,
+  },
+  {
+    name: "Contact us",
+    icon: <FaWpforms className="w-6 h-6" />,
+    path: paths.contactus,
   },
 ];
 

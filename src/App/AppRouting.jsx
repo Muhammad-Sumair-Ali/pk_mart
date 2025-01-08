@@ -28,6 +28,8 @@ import AdminDashboard from "./pages/admin/common/dashboard.admin";
 import AdminProfile from "./pages/admin/common/profile.admin";
 import UserProfile from "./pages/common/UserProfile";
 import NotificationAdmin from "./pages/admin/notification.admin";
+import About from "./pages/common/About";
+import Contactus from "./pages/common/Contactus";
 
 const AppRouting = () => {
   const location = useLocation();
@@ -61,6 +63,8 @@ const AppRouting = () => {
         <Route path={paths.subCategories} element={<SubCategories />} />
         <Route path="/search" element={<ProductListing />} />
         <Route path={paths.mymarket} element={<MyMarketListPage />} />
+        <Route path={paths.aboutus} element={<About />} />
+        <Route path={paths.contactus} element={<Contactus />} />
 
         {/* Admin routes */}
         <Route path={paths.admin} element={<AdminRouting />}>
