@@ -17,9 +17,11 @@ import {
 } from "react-icons/fa";
 import { AiOutlineSearch, AiOutlineArrowUp } from "react-icons/ai";
 import { LiaUserFriendsSolid } from "react-icons/lia";
+import useUserLocation from "../../../../action/useUsergetLocation";
 
 const AdminDashboard = () => {
-  
+  const location = useUserLocation();
+
     const [users, setUsers] = useState([
       {
         id: 1,
@@ -236,6 +238,14 @@ const AdminDashboard = () => {
               <span>80 Visitors</span>
             </li>
           </ul>
+          {location ? (
+        <p>
+          Welcome! You're browsing from {location.city}, {location.country}.
+        </p>
+      ) : (
+        <p>Loading your location...</p>
+      )}
+
         </div>
       </div>
 
@@ -422,20 +432,23 @@ const AdminDashboard = () => {
                       <td className="px-6 py-4 text-sm text-gray-600">
                         {user.recentActivity}
                       </td>
-                      <td className="px-6 py-4 text-sm space-x-2">
-                        <button
-                          className="text-blue-500 hover:text-blue-600"
-                          onClick={() => alert("View User Details")}
-                        >
-                          View
-                        </button>
-                        <button
-                          className="text-red-500 hover:text-gray-600"
+                      <td className="px-5 py-4 text-md flex space-x-2 gap-2 justify-center ">
+                    <button
+                      className=" text-blue-600 p-2 text-sm  rounded-2xl  hover:bg-gradient-to-r
+                    from-indigo-600 to-violet-500 hover:text-white transition duration-300"
+                    >
+                      View
+                    </button>
+                    <button
                           disabled={!user.isApproved}
-                        >
-                          Disable
-                        </button>
-                      </td>
+
+                      className=" text-red-600 p-2 text-sm  rounded-2xl  hover:bg-gradient-to-r
+        from-red-600 to-orange-500 hover:text-white transition duration-300"
+                    >
+                      Disable
+                    </button>
+                  </td>
+
                     </tr>
                   ))}
                 </tbody>

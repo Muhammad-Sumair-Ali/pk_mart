@@ -75,7 +75,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-6 bg-gray-50">
+      <section className="py-6 bg-gray-100">
       <div className="w-full max-w-6xl px-4 md:px-6 lg:px-8 mx-auto">
         <h2 className="text-center text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-10">
           Why Choose Jz Mart?

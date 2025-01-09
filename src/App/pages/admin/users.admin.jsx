@@ -350,7 +350,7 @@ const AdminUsers = () => {
                       className=" text-red-600 p-2 text-sm  rounded-2xl  hover:bg-gradient-to-r
         from-red-600 to-orange-500 hover:text-white transition duration-300"
                     >
-                      Delete
+                      Disable
                     </button>
                   </td>
                 </tr>
