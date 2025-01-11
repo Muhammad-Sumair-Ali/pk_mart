@@ -103,7 +103,7 @@ const Categories = () => {
               </div>
 
               {/* For larger screens */}
-              <div className="hidden md:grid sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-4 mb-4 xl:px-4 max-2xl:px-8">
+              <div className="hidden md:grid sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:px-2 mb-4 xl:px-3 max-2xl:px-4">
                 {category.subcategories.map((subcategory, idx) => (
                   <div
                     key={idx}
@@ -129,7 +129,8 @@ const Categories = () => {
                           <div
                             onClick={() => handleSubcategoryClick(type)}
                             key={typeIdx}
-                            className="text-xs text-gray-600 border border-gray-400 rounded-md xl:px-2 p-1 py-1 text-left hover:bg-blue-200 hover:text-blue-600 hover:cursor-pointer transition"
+                            className="text-xs  text-gray-600 border border-gray-400 rounded-md xl:px-2 p-1 py-1
+                             text-left hover:bg-blue-200 hover:text-blue-600 hover:cursor-pointer transition"
                           >
                             {type}
                           </div>

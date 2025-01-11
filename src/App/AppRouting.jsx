@@ -30,6 +30,8 @@ import UserProfile from "./pages/common/UserProfile";
 import NotificationAdmin from "./pages/admin/notification.admin";
 import About from "./pages/common/About";
 import Contactus from "./pages/common/Contactus";
+import PostAddProduct from "./pages/postAdd/AddPostSeller";
+import BecomeSeller from "./components/BecomeASeller";
 
 const AppRouting = () => {
   const location = useLocation();
@@ -51,13 +53,15 @@ const AppRouting = () => {
     <>
       <ScrollRestoration />
 
-      {!hideNavbarFooter && <Navbar />}
+      {/* {!hideNavbarFooter && <Navbar />} */}
 
       {/* client Routes */}
       <Routes>
         <Route path={paths.home} element={<Home />} />
         <Route path={paths.products} element={<ProductListing />} />
         <Route path={paths.productDetails} element={<ProductDetail />} />
+        <Route path={paths.sellproduct} element={<PostAddProduct />} />
+
         <Route path={paths.profile} element={<ProfilePage />} />
         <Route path="/user/profile" element={<UserProfile />} />
         <Route path={paths.subCategories} element={<SubCategories />} />
@@ -65,6 +69,7 @@ const AppRouting = () => {
         <Route path={paths.mymarket} element={<MyMarketListPage />} />
         <Route path={paths.aboutus} element={<About />} />
         <Route path={paths.contactus} element={<Contactus />} />
+        <Route path={paths.becomeSeller} element={<BecomeSeller />} />
 
         {/* Admin routes */}
         <Route path={paths.admin} element={<AdminRouting />}>
@@ -90,7 +95,7 @@ const AppRouting = () => {
         <Route path="*" element={<>Not Found</>} />
       </Routes>
 
-      {!hideNavbarFooter && <Footer />}
+      {/* {!hideNavbarFooter && <Footer />} */}
     </>
   );
 };

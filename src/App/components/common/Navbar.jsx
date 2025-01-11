@@ -14,7 +14,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="backdrop-blur-sm hover:bg-gray-50/75 dark:bg-gray-800 antialiased shadow-lg sticky top-0 bg-gray-100/25 z-50">
+      <nav className="backdrop-blur-sm hover:bg-gray-50/75 dark:bg-gray-800 antialiased shadow-lg sticky top-0 bg-gray-100/25 z-50 xl:px-12 2xl:px-16">
         <div className="w-full px-1 md:px-4 mx-auto 2xl:px-0 py-2">
           <div className="flex items-center  justify-between ">
             <div className="flex items-center md:space-x-2 ">
@@ -54,27 +54,13 @@ export default function Navbar() {
 
               <button className="hidden lg:block">
                   <Link
-                    to={paths.messagesHome}
-                    className="flex   items-center text-sm  py-2  sm:py-1 p-2 rounded-md text-white hover:bg-blue-700 bg-blue-600 group"
+                    to={paths.sellproduct}
+                    className="flex   items-center text-sm  py-2  sm:py-1 p-2 rounded-md text-white hover:bg-fuchsia-700 bg-fuchsia-800 group"
                   >
 
                     <span className="p-1  whitespace-nowrap">
-                      Messages
+                      Sell Product
                     </span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="size-5"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z"
-                      />
-                    </svg>
                   </Link>
               </button>
               <SideMenu />

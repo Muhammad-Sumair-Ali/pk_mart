@@ -3,10 +3,12 @@ export const paths = {
   signup: "/signup",
   aboutus: "/about",
   contactus: "/contact",
+  becomeSeller: "/user/becomeSeller",
   home: "/",
   messagesHome: "/chat/home",
   // products
   mymarket: "/user/market",
+  sellproduct: "/user/sell",
   products: "/products",
   productDetails: "/products/:id",
   subCategories: "/subCategories/:id",

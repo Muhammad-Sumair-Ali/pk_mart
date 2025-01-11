@@ -18,7 +18,7 @@ const TopBrands = () => {
   ];
 
   return (
-    <section className="md:py-10 bg-gray-100 pb-6">
+    <section className="md:py-7 bg-gray-100 my-5 pb-6 rounded-lg">
       <div className="md:w-3/3 w-full mx-auto text-center px-2">
         <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-12">Top Pakistan Brands</h2>
         {/* Marquee Container */}

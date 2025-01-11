@@ -23,7 +23,7 @@ const CitySection = () => {
     : cities.slice(0, 6); 
 
   return (
-    <section className="bg-gray-100 py-4 md:py-8">
+    <section className="bg-gray-100 rounded-lg md:py-8 my-4">
       <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6 text-center">
         Find Suppliers from Top Cities in Pakistan
       </h2>
