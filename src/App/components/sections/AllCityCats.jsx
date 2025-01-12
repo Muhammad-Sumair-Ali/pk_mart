@@ -27,8 +27,8 @@ const CitySection = () => {
       <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6 text-center">
         Find Suppliers from Top Cities in Pakistan
       </h2>
-      <div className="md:w-[90%] xl:w-[80%] sm:w-[85%] w-full mx-auto text-center">
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 xl:grid-cols-5 md:gap-y-2 sm:gap-x-8 md:gap-x-10 gap-2 gap-y-3 px-2 md:px-14">
+      <div className="md:w-[90%] xl:w-[90%] sm:w-[85%] w-full mx-auto text-center">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 xl:grid-cols-5 md:gap-y-2 sm:gap-x-8 md:gap-x-10 gap-2 gap-y-3 px-2 md:px-14">
           {displayedCities.map((city, index) => (
             <div
               key={index}

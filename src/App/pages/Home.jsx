@@ -6,6 +6,7 @@ import CitySection from "../components/sections/AllCityCats";
 import TopBrands from "../components/sections/TopBrands";
 import FeaturedSection from "../components/FeaturedListing";
 import FeaturedCategories from "../components/FeaturedCategories";
+import GetUserRequirement from "../components/sections/GetUserRequirement";
 
 const Home = () => {
   return (
@@ -14,7 +15,7 @@ const Home = () => {
       <FeaturedCategories/>
       <Categories />
       {/* <FeaturedSection /> */}
-
+      <GetUserRequirement/>
       <CitySection />
       <TopBrands />
     </>
