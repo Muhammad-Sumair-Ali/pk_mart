@@ -5,9 +5,14 @@ import {
   FaShoppingCart,
   FaRegUser,
   FaMapMarkerAlt,
+  FaCheck,
+  FaCut,
+  FaClosedCaptioning,
 } from "react-icons/fa";
 import { AiOutlineSearch, AiOutlineArrowUp } from "react-icons/ai";
 import { LiaUserFriendsSolid } from "react-icons/lia";
+import { CgClose } from "react-icons/cg";
+import { FaRepeat } from "react-icons/fa6";
 
 const AdminUsers = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -117,6 +122,20 @@ const AdminUsers = () => {
       count: 700,
     },
     {
+      title: "Total Disable Users",
+      description: "Number of disable users to the platform",
+      icon: <CgClose className="text-4xl" />,
+      bgColor: "bg-gradient-to-r from-red-400 to-pink-600",
+      count: 700,
+    },
+    {
+      title: "Pending Sellers Approvals ",
+      count: 320,
+      description: "Sellers awaiting approval",
+      icon: <FaCheck className="text-4xl" />,
+      bgColor: "bg-gradient-to-r from-rose-500 to-orange-800",
+    },
+    {
       title: "Growing Users",
       description: "Users with the highest growth rate",
       icon: <AiOutlineArrowUp className="text-4xl" />,
@@ -130,6 +149,13 @@ const AdminUsers = () => {
       bgColor: "bg-gradient-to-r from-green-500 to-lime-600",
       count: 350,
     },
+    {
+          title: "Returning Visitors",
+          count: 730,
+          description: "Users who visited again today",
+          icon: <FaRepeat className="text-4xl" />,
+          bgColor: "bg-gradient-to-r from-lime-500 to-slate-600",
+        },
     {
       title: " InActive Users",
       description: "Number of inactive users on the platform",
@@ -270,6 +296,46 @@ const AdminUsers = () => {
           </div>
         </div>
 
+               
+            {/* approvels  */}
+      
+            <div className="bg-gray-100 rounded-lg shadow-md my-7 p-4">
+              {/* Become a Seller Section */}
+              <div className="mb-3">
+                <h4 className="text-lg font-medium text-red-700 mb-3">
+                  Pending "Become a Seller" Requests
+                </h4>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                  {users
+                    .filter((user) => user.isSeller && !user.isApproved)
+                    .map((user) => (
+                      <div
+                        key={user.id}
+                        className="bg-gradient-to-t from-red-100 to-white rounded-lg shadow p-2 px-4 flex flex-col justify-between"
+                      >
+                        <div>
+                          <p className="text-gray-800 font-medium">{user.name}</p>
+                          <p className="text-sm text-gray-500">{user.email}</p>
+                          <p className="text-sm text-gray-500">{user.location}</p>
+                        </div>
+                        <div className="mt-4 flex justify-end space-x-3">
+                          <button className="bg-green-500 text-white px-3 py-1.5 rounded-lg shadow hover:bg-green-600 transition text-sm">
+                            Approve
+                          </button>
+                          <button className="bg-red-500 text-white px-3 py-1.5 rounded-lg shadow hover:bg-red-600 transition text-sm">
+                            Reject
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  {users.filter((user) => user.isSeller && !user.isApproved)
+                    .length === 0 && (
+                    <p className="text-gray-500 text-sm">No pending requests.</p>
+                  )}
+                </div>
+              </div>
+              
+            </div>
         {/* Filters */}
         <div className="flex items-center justify-between my-5 bg-gray-100 p-2 rounded-md">
           <div className="relative w-full max-w-md">
@@ -359,6 +425,11 @@ const AdminUsers = () => {
           </table>
         </div>
       </div>
+
+
+
+
+     
     </>
   );
 };

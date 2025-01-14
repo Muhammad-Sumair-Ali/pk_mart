@@ -42,7 +42,14 @@ const summaryCards = [
     textClass: "text-white",
   },
   {
-    title: "Pending Approvel Products",
+    title: "Total Disable  Products",
+    count: "58",
+    icon: <FaRegCheckCircle />,
+    bgClass: "from-red-500 to-rose-700",
+    textClass: "text-white",
+  },
+  {
+    title: "Pending Products Approvel ",
     count: "210",
     icon: <FaRegCircleCheck />,
     bgClass: "from-red-500 to-orange-400",
@@ -76,7 +83,83 @@ const AdminProducts = () => {
           </div>
         ))}
       </div>
-
+      <div>
+        {/* Pending Product Posts Section */}
+        <div className="px-4 py-6 rounded-lg bg-gray-100 my-4">
+          <h4 className="text-xl font-medium text-red-700 mb-3 mt-2">
+            Pending Product Posts
+          </h4>
+          <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+            {[
+              {
+                id: 2,
+                title: "Gaming Chair",
+                seller: "Liam Taylor",
+                date: "Jan 5, 2025",
+              },
+              {
+                id: 1,
+                title: "Wireless Earbuds",
+                seller: "Jane Smith",
+                date: "Jan 6, 2025",
+              },
+              {
+                id: 2,
+                title: "Gaming Chair",
+                seller: "Liam Taylor",
+                date: "Jan 5, 2025",
+              },
+              {
+                id: 1,
+                title: "Wireless Earbuds",
+                seller: "Jane Smith",
+                date: "Jan 6, 2025",
+              },
+              {
+                id: 2,
+                title: "Gaming Chair",
+                seller: "Liam Taylor",
+                date: "Jan 5, 2025",
+              },
+              {
+                id: 2,
+                title: "Gaming Chair",
+                seller: "Liam Taylor",
+                date: "Jan 5, 2025",
+              },
+              {
+                id: 2,
+                title: "Gaming Chair",
+                seller: "Liam Taylor",
+                date: "Jan 5, 2025",
+              },
+            ].map((product) => (
+              <div
+                key={product.id}
+                className="bg-gradient-to-t from-red-100 to-white rounded-lg shadow p-2 py-3 px-4 flex flex-col justify-between"
+              >
+                <div>
+                  <p className="text-gray-800 font-medium">{product.title}</p>
+                  <p className="text-sm text-gray-500">
+                    Seller: {product.seller}
+                  </p>
+                  <p className="text-sm text-gray-500">
+                    Requested on: {product.date}
+                  </p>
+                </div>
+                <div className="mt-4 flex justify-end space-x-3">
+                  <button className="bg-green-500 text-white px-3 py-1.5 rounded-lg shadow hover:bg-green-600 transition text-sm">
+                    Approve
+                  </button>
+                  <button className="bg-red-500 text-white px-3 py-1.5 rounded-lg shadow hover:bg-red-600 transition text-sm">
+                    Reject
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
       {/* Filters */}
       <div className="flex flex-col sm:flex-row items-center justify-between my-6 gap-4">
         <div className="w-full sm:w-auto">
@@ -171,8 +254,10 @@ const AdminProducts = () => {
                 <td className="px-4 py-3">{product.price}</td>
                 <td className="px-4 py-3">{3 + index * 7}</td>
                 <td className="py-3 flex gap-2 justify-center ">
-                  <button className=" text-red-600 p-2 text-sm  rounded-2xl  hover:bg-gradient-to-r
-        from-red-600 to-orange-500 hover:text-white transition duration-300">
+                  <button
+                    className=" text-red-600 p-2 text-sm  rounded-2xl  hover:bg-gradient-to-r
+        from-red-600 to-orange-500 hover:text-white transition duration-300"
+                  >
                     Disable
                   </button>
                   <ProductDetailModal product={product} />

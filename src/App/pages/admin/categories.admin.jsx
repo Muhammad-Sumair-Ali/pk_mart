@@ -6,6 +6,7 @@ import {
   FaList,
   FaRegTimesCircle,
   FaStar,
+  FaTags,
 } from "react-icons/fa";
 
 const AdminCategories = () => {
@@ -35,7 +36,22 @@ const AdminCategories = () => {
       ],
     },
   ]);
-
+  const cards = [
+    {
+      title: "Total Categories",
+      count: 28,
+      description: "Number of categories available",
+      icon: <FaTags className="text-4xl" />,
+      bgColor: "bg-gradient-to-r from-green-500 to-green-400",
+    },
+    {
+      title: "Total SubCategories",
+      count: 42,
+      description: "Number of sub categories available",
+      icon: <FaTags className="text-4xl" />,
+      bgColor: "bg-gradient-to-r from-rose-500 to-rose-400",
+    },
+  ];
   const [categoryTitle, setCategoryTitle] = useState("");
   const [subcategoryName, setSubcategoryName] = useState("");
 
@@ -148,8 +164,59 @@ const AdminCategories = () => {
         desc="Create new category with subcategories"
       />
 
+      {/* Cards Section */}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 mt-6">
+        {cards.map((card, index) => (
+          <div
+            key={index}
+            className={`flex items-center justify-between p-2 md:p-3 ${card.bgColor} rounded-lg shadow-lg text-white`}
+          >
+            <div>
+              <div className="flex items-center gap-3">
+                <span className="text-md md:text-xl bg-white bg-opacity-20 p-1 md:p-2 rounded-full">
+                  {card.icon}
+                </span>
+
+                <h3 className="text-lg lg:text-xl font-semibold">
+                  {card.title}
+                </h3>
+              </div>
+              <p className="text-sm">{card.description}</p>
+              <p className="text-lg lg:text-xl font-bold">{card.count}</p>{" "}
+              {/* Dynamic count */}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="bg-gray-100 my-4">
+        <div className="p-6  shadow-lg rounded-lg">
+          <h3 className="text-lg font-bold text-gray-700 mb-4">
+            Top Categories
+          </h3>
+          <ul className="space-y-2">
+            <li className="flex justify-between items-center text-gray-700">
+              <span>Electronics</span>
+              <span className="text-green-500 font-bold">45%</span>
+            </li>
+            <li className="flex justify-between items-center text-gray-700">
+              <span>Fashion</span>
+              <span className="text-green-500 font-bold">30%</span>
+            </li>
+            <li className="flex justify-between items-center text-gray-700">
+              <span>Home & Garden</span>
+              <span className="text-green-500 font-bold">15%</span>
+            </li>
+            <li className="flex justify-between items-center text-gray-700">
+              <span>Others</span>
+              <span className="text-green-500 font-bold">10%</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
       {/* Add or Edit Category */}
-      <div className="mb-6">
+      <div className="my-6">
         <input
           type="text"
           className="border p-2 mr-2"
@@ -223,14 +290,15 @@ const AdminCategories = () => {
                     </button>
                   </div>
                 )}
-                {subcategoryImage ? "" : (
-                <button
-                  className="bg-blue-500 text-white font-medium py-2 px-3 rounded-md hover:bg-blue-600 transition text-sm"
-                  onClick={openModal}
-                >
-                  Select Image
-                </button>
-
+                {subcategoryImage ? (
+                  ""
+                ) : (
+                  <button
+                    className="bg-blue-500 text-white font-medium py-2 px-3 rounded-md hover:bg-blue-600 transition text-sm"
+                    onClick={openModal}
+                  >
+                    Select Image
+                  </button>
                 )}
               </div>
             </div>
